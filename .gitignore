@@ -9,3 +9,6 @@ Thumbs.db
 
 # Netlify
 .netlify/
+
+# Playwright MCP (browser tool snapshots/cache)
+.playwright-mcp/
