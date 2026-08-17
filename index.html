@@ -12,6 +12,7 @@
 <link rel="manifest" href="/assets/fav/site.webmanifest" />
 <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+<link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -40,8 +41,16 @@
 </nav>
 
 <section class="hero">
-  <div class="container">
-    <div class="row align-items-center g-5">
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image:url('assets/photos/hero-breakdance.webp')"></div>
+      <div class="swiper-slide" style="background-image:url('assets/photos/about-lineup.webp')"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="row">
       <div class="col-lg-7">
         <div class="d-flex align-items-center mb-4">
           <span class="eyebrow-dot"></span>
@@ -55,11 +64,6 @@
         <div class="d-flex flex-wrap gap-3">
           <a href="kontakt.html" class="btn btn-accent">Přidej se ke crew <i class="fa-solid fa-arrow-right ms-1"></i></a>
           <a href="https://www.instagram.com/afreshdancecommunity" target="_blank" class="btn btn-outline-custom"><i class="fa-brands fa-instagram me-2"></i>Sledovat na Instagramu</a>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="hero-visual">
-          <img src="assets/photos/hero-breakdance.webp" alt="Afresh DC na pódiu">
         </div>
       </div>
     </div>
@@ -208,6 +212,7 @@
 </footer>
 
 <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/swiper/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
