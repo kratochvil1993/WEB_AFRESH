@@ -277,6 +277,42 @@ html{scroll-behavior:smooth;}
 @media (min-width:992px){
   .navbar-collapse{background:transparent; border:none; padding:0; margin-top:0;}
 }
+/* "O nás" dropdown — the nav-link itself is a plain link straight to the
+   O Afresh page (so clicking the label always navigates), and a separate
+   caret button next to it opens the Bootstrap dropdown listing O Afresh /
+   Galerie / Videa. Kept as two elements rather than one link+toggle
+   because Bootstrap's dropdown JS calls preventDefault() on the toggle's
+   click, which would otherwise swallow the direct-navigation click. */
+.nav-item--dropdown{display:flex; align-items:center;}
+.nav-item--dropdown .nav-link{margin-right:.15rem;}
+.nav-caret{
+  background:transparent; border:0; color:var(--text-dim);
+  padding:.3rem; margin:0 .85rem 0 -.15rem; line-height:1;
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.nav-caret i{font-size:.65rem; display:block; transition:transform .2s ease, color .2s ease;}
+.nav-caret:hover i, .nav-caret:focus-visible i, .nav-caret[aria-expanded="true"] i{
+  color:var(--accent2); transform:rotate(180deg);
+}
+.nav-item--dropdown .dropdown-menu{
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:.5rem; margin-top:.9rem !important; min-width:11rem;
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+.dropdown-item{
+  color:var(--text); font-size:.75rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:600;
+  padding:.6rem .9rem; border-radius:var(--radius-sm); background:transparent;
+}
+.dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active{
+  background:rgba(255,212,0,.1); color:var(--accent2);
+}
+@media (max-width:991px){
+  .nav-item--dropdown{flex-wrap:wrap;}
+  .nav-item--dropdown .dropdown-menu{
+    position:static; float:none; width:100%; background:transparent; border:none;
+    box-shadow:none; margin-top:.5rem !important; padding-left:1rem;
+  }
+}
 
 /* HERO */
 .hero{
@@ -564,6 +600,29 @@ footer a:hover{color:var(--text);}
 @media (max-width:575px){
   .info-chip-row{justify-content:center;}
 }
+
+/* LEKTOŘI — profilové karty na lektori.html. Avatar je zatím placeholder
+   ikona v kruhu (žádné reálné portréty lektorů k dispozici), jakmile budou
+   fotky, stačí .lektor-avatar nahradit <img>. Stejný hover-lift + accent2
+   border jazyk jako .info-chip výše, aby to sedělo k ostatním kartám na webu. */
+.lektor-card{
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius);
+  padding:2.6rem 2rem; height:100%; text-align:center;
+  transition:border-color .25s ease, transform .25s ease;
+}
+.lektor-card:hover{border-color:var(--accent2); transform:translateY(-6px);}
+.lektor-avatar{
+  width:104px; height:104px; margin:0 auto 1.4rem; border-radius:50%;
+  background:var(--bg); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-size:2.4rem; color:var(--accent2);
+}
+.lektor-card h2{font-size:1.5rem; margin-bottom:.3rem;}
+.lektor-role{
+  display:block; color:var(--accent2); font-size:.72rem; letter-spacing:2px;
+  text-transform:uppercase; font-weight:700; margin-bottom:1.1rem;
+}
+.lektor-card p{margin-bottom:1.3rem;}
 
 .form-control, .form-select{
   background:var(--bg-alt); border:1px solid var(--line); color:var(--text);

@@ -87,6 +87,33 @@ document.addEventListener('DOMContentLoaded', () => {
     applyNavScrollState();
   }
 
+  // "O nás" dropdown v navigaci — Bootstrapí dropdown JS otevírá menu jen na klik
+  // (na caret tlačítko), což na desktopu působí jako "nejede". Najetí myší na
+  // celou položku (odkaz i caret i samotné menu, jsou to sourozenci uvnitř
+  // stejného <li>) proto menu doplňkově otevře/zavře přes Dropdown API. Zavření
+  // má krátký delay, aby pohyb myši z odkazu na caret/menu meziprvek nezasekl.
+  // Bootstrap při show() interně na caret tlačítko zavolá .focus() (kvůli
+  // šipkám na klávesnici v menu) — na hover to ale vypadá jako náhodný modrý
+  // focus-outline kolem šipky, i když uživatel klávesnici nepoužil. Hned po
+  // otevření proto tlačítko odfokusujeme; skutečné focusnutí přes Tab si
+  // vlastní focus event pošle znovu a outline se ukáže správně.
+  if (typeof bootstrap !== 'undefined' && bootstrap.Dropdown) {
+    document.querySelectorAll('.nav-item--dropdown').forEach(item => {
+      const toggle = item.querySelector('[data-bs-toggle="dropdown"]');
+      if (!toggle) return;
+      const dropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+      let closeTimer;
+      item.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimer);
+        dropdown.show();
+        toggle.blur();
+      });
+      item.addEventListener('mouseleave', () => {
+        closeTimer = setTimeout(() => dropdown.hide(), 150);
+      });
+    });
+  }
+
   // Tlačítko "zpět nahoru": objeví se po odscrollování kousek dolů, sdílí
   // rAF throttling se stejným scroll listenerem jako navbar výše.
   const backToTop = document.querySelector('.back-to-top');

@@ -10,32 +10,41 @@
 <link rel="shortcut icon" href="/assets/fav/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png" />
 <link rel="manifest" href="/assets/fav/site.webmanifest" />
-<link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+<link href="../vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../vendor/fontawesome/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid navbar-inner d-flex align-items-center justify-content-between">
-    <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
-      <span class="logo-badge"><img src="assets/logo-white.png" alt="Afresh DC logo"></span>
+    <a href="../index.html" class="d-flex align-items-center gap-2 text-decoration-none">
+      <span class="logo-badge"><img src="../assets/logo-white.png" alt="Afresh DC logo"></span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Přepnout navigaci">
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse flex-grow-0" id="navMain">
       <ul class="navbar-nav flex-lg-row">
-        <li class="nav-item"><a class="nav-link" href="index.html">Úvod</a></li>
-        <li class="nav-item"><a class="nav-link nav-link--highlight" href="nabor.html">Nábor</a></li>
-        <li class="nav-item"><a class="nav-link active" href="onas.html">O nás</a></li>
-        <li class="nav-item"><a class="nav-link" href="kurzy.html">Kurzy</a></li>
-        <li class="nav-item"><a class="nav-link" href="uspechy.html">Úspěchy</a></li>
-        <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
-        <li class="nav-item"><a class="nav-link" href="videa.html">Videa</a></li>
-        <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+        <li class="nav-item"><a class="nav-link" href="../index.html">Úvod</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--highlight" href="../nabor.html">Nábor</a></li>
+        <li class="nav-item"><a class="nav-link" href="../kurzy.html">Kurzy</a></li>
+        <li class="nav-item"><a class="nav-link" href="../lektori.html">Lektoři</a></li>
+        <li class="nav-item dropdown nav-item--dropdown">
+          <a class="nav-link active" href="o-afresh.html">O nás</a>
+          <button class="nav-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Rozbalit nabídku O nás">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="o-afresh.html">O Afresh</a></li>
+            <li><a class="dropdown-item" href="uspechy.html">Úspěchy</a></li>
+            <li><a class="dropdown-item" href="galerie.html">Galerie</a></li>
+            <li><a class="dropdown-item" href="videa.html">Videa</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="../kontakt.html">Kontakt</a></li>
       </ul>
     </div>
   </div>
@@ -66,8 +75,8 @@
       </div>
       <div class="col-lg-5">
         <div class="about-visual">
-          <img class="block b1" src="assets/photos/about-lineup.webp" alt="Afresh DC na pódiu při vystoupení">
-          <img class="block b2" src="assets/photos/about-medals.webp" alt="Afresh DC s medailemi ze soutěže">
+          <img class="block b1" src="../assets/photos/about-lineup.webp" alt="Afresh DC na pódiu při vystoupení">
+          <img class="block b2" src="../assets/photos/about-medals.webp" alt="Afresh DC s medailemi ze soutěže">
         </div>
       </div>
     </div>
@@ -79,7 +88,7 @@
     <div class="row mb-5 align-items-end g-4">
       <div class="col-lg-8">
         <span class="tag d-block mb-3">Co nabízíme</span>
-        <h2 class="display" style="font-size:clamp(36px,5vw,60px);">Kurzy, vystoupení<br>&amp; komunita</h2>
+        <h2 class="display" style="font-size:clamp(36px,5vw,60px);">Kurzy, vystoupení<br>&amp; lektoři</h2>
       </div>
       <div class="col-lg-4">
         <p class="text-dim mb-0">Ať už chceš tančit poprvé nebo se posunout na další level.</p>
@@ -92,7 +101,7 @@
           <i class="fa-solid fa-fire highlight-icon"></i>
           <h3 class="display fs-3 mb-3">Kurzy</h3>
           <p class="text-dim mb-3">Pravidelné lekce hip hopu, house dance a dalších stylů pro všechny úrovně.</p>
-          <a href="kontakt.html" class="card-link">Přidej se <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="../kontakt.html" class="card-link">Přidej se <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -107,10 +116,10 @@
       <div class="col-md-4">
         <div class="highlight-card">
           <span class="num-tag">03</span>
-          <i class="fa-solid fa-people-group highlight-icon"></i>
-          <h3 class="display fs-3 mb-3">Komunita</h3>
-          <p class="text-dim mb-3">Rodina lidí spojená tancem — nová sezona, noví členové, nová energie.</p>
-          <a href="galerie.html" class="card-link">Galerie <i class="fa-solid fa-arrow-right"></i></a>
+          <i class="fa-solid fa-chalkboard-user highlight-icon"></i>
+          <h3 class="display fs-3 mb-3">Lektoři</h3>
+          <p class="text-dim mb-3">Zkušený tým, který tě naučí styl i techniku — poznej lidi, co stojí za kurzy.</p>
+          <a href="../lektori.html" class="card-link">Poznat tým <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -121,7 +130,7 @@
   <div class="container">
     <span class="tag d-block mb-3">Nezůstávej v publiku</span>
     <h2 class="display mb-4" style="font-size:clamp(40px,7vw,80px);">Pojď <span class="text-accent">tančit</span><br><span class="outline">s námi</span></h2>
-    <a href="kontakt.html" class="pill-btn">
+    <a href="../kontakt.html" class="pill-btn">
       <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
       <span class="pill-btn__label">Napsat nám</span>
       <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
@@ -131,7 +140,7 @@
 
 <footer>
   <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
-    <div>© 2026 Afresh Dance Community, Plzeň · <a href="gdpr.html">Ochrana osobních údajů</a></div>
+    <div>© 2026 Afresh Dance Community, Plzeň · <a href="../gdpr.html">Ochrana osobních údajů</a></div>
     <div class="d-flex gap-4">
       <a href="https://www.instagram.com/afreshdancecommunity" target="_blank"><i class="fa-brands fa-instagram me-1"></i>Instagram</a>
       <a href="https://www.facebook.com/afreshdc/" target="_blank"><i class="fa-brands fa-facebook me-1"></i>Facebook</a>
@@ -144,7 +153,7 @@
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
+<script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
