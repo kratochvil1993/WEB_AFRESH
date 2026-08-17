@@ -1,0 +1,11 @@
+# Zdrojové podklady od klienta (fotky apod.) - needitovat/necommitovat
+_PODKLADY/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Netlify
+.netlify/
