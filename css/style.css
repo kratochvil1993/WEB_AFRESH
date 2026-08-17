@@ -252,6 +252,15 @@ html{scroll-behavior:smooth;}
 .logo-badge:hover{box-shadow:0 0 0 3px rgba(255,45,85,.35);}
 .navbar.is-scrolled .logo-badge{width:48px; height:48px; margin:0; transform:translateY(0);}
 .logo-badge img{width:100%; height:100%; object-fit:cover; display:block;}
+/* Below the lg breakpoint (mobile nav / hamburger, same range .hero-video pages use
+   the vertically-centered hero) the full 100px bleed logo eats too much of the
+   viewport height and — on short mobile screens — physically overlaps the hero's
+   eyebrow tag, since .hero centers its content and only has ~96px of top padding
+   to clear it. Shrink the bleed here and give the hero a bit more clearance instead
+   of solving it per-page. */
+@media (max-width:991.98px){
+  .logo-badge{width:60px; height:60px; margin:-4px 0; transform:translateY(8px);}
+}
 .navbar-nav .nav-link{
   color:var(--text); font-size:.8rem; letter-spacing:2px; text-transform:uppercase; font-weight:600;
   margin:0 1rem; position:relative; padding-bottom:4px;
@@ -322,6 +331,12 @@ html{scroll-behavior:smooth;}
   overflow:hidden;
   background:var(--bg);
   padding-top:6rem;
+}
+/* Extra top clearance to match the shrunk mobile .logo-badge above — .hero
+   vertically centers its content, so on short phone viewports the centered
+   block sits close enough to the top to clip under the logo without this. */
+@media (max-width:991.98px){
+  .hero{padding-top:7rem;}
 }
 .hero-swiper{
   position:absolute; inset:0; width:100%; height:100%; z-index:0;
@@ -430,6 +445,18 @@ html{scroll-behavior:smooth;}
 }
 
 section{padding:9rem 0;}
+/* The 9rem desktop rhythm reads as huge dead space once sections stack full-width
+   on phones/tablets (this is the base `section` rule, so it also covers plain
+   `<section>` wrappers and `.section-about` — pages that only add `.pt-5` for the
+   top only keep the full 9rem on the bottom otherwise). Scaled down in two steps
+   rather than a single cutover so it still tapers smoothly around the tablet
+   breakpoint. */
+@media (max-width:991.98px){
+  section{padding:6rem 0;}
+}
+@media (max-width:575.98px){
+  section{padding:4.5rem 0;}
+}
 .section-about{background:var(--bg);}
 .section-about--dark{background:var(--bg);}
 
@@ -457,6 +484,15 @@ section{padding:9rem 0;}
 .stat-col{padding:3.5rem 1rem; border-right:1px solid var(--line); text-align:center;}
 .stat-num{font-family:'Anton',sans-serif; font-size:3.4rem; color:var(--accent2); line-height:1;}
 .stat-label{margin-top:.8rem; font-size:.8rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-dim);}
+/* Below md the 4 stats wrap into a 2x2 grid (col-6 col-md-3 in the HTML) — the
+   divider border was written for a single row of 4, so on 2 columns it left a
+   stray line on the right edge of column 2 (nothing to divide there, the row just
+   ends). Column 4 already drops its border inline for the same reason on the
+   single-row layout. */
+@media (max-width:767.98px){
+  .stat-col{padding:2.5rem 1rem;}
+  .stat-col:nth-child(2n){border-right:none;}
+}
 
 /* PARALLAX PHOTO BAND — full-bleed action shot between stats and highlights, background
    pinned via background-attachment:fixed so the section content scrolls over it instead
@@ -506,6 +542,9 @@ section{padding:9rem 0;}
 .cta-band{
   text-align:center; padding:5.5rem 0;
   background:radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,45,85,0.18), transparent 60%), var(--bg);
+}
+@media (max-width:575.98px){
+  .cta-band{padding:4rem 0;}
 }
 
 #highlights{background:var(--bg-alt);}
@@ -569,6 +608,9 @@ footer a:hover{color:var(--text);}
     var(--bg-alt);
 }
 .page-hero h1{font-size:clamp(42px,6vw,76px); line-height:.95;}
+@media (max-width:767.98px){
+  .page-hero{padding:8rem 0 3rem;}
+}
 
 .card-link{color:var(--accent); font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
 .card-link:hover{color:var(--accent2);}
@@ -582,6 +624,16 @@ footer a:hover{color:var(--text);}
 .event-row:last-child{border-bottom:none;}
 .event-row .event-name{font-family:'Anton',sans-serif; font-size:1.3rem; text-transform:uppercase;}
 .event-row .event-year{color:var(--accent2); font-family:'Anton',sans-serif; font-size:1.1rem; min-width:70px;}
+/* On narrow screens `flex-wrap:wrap` let long event names push the whole year
+   item onto its own row — inconsistent row-to-row since it only kicked in once a
+   name got long enough to not fit. Keep both on one line always: the name wraps
+   its own text across lines (min-width:0 lets it shrink below content size) while
+   the year stays pinned to the right, same as every other row. */
+@media (max-width:767.98px){
+  .event-row{flex-wrap:nowrap; gap:1rem;}
+  .event-row .event-name{flex:1 1 auto; min-width:0; font-size:1.1rem;}
+  .event-row .event-year{flex:0 0 auto; min-width:0;}
+}
 
 /* GALLERY — masonry via CSS columns, lightbox handled by vendored GLightbox */
 .gallery-grid{columns:3; column-gap:14px;}
