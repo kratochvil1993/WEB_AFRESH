@@ -18,6 +18,7 @@ index.html          hlavní (zatím jediná) stránka — hero, o nás, úspěch
 css/style.css        veškeré vlastní styly (dark theme, typografie, sekce)
 js/main.js            vlastní JS (zatím: aktivní stav v navigaci podle scrollu)
 assets/logo.jpg       logo skupiny (černý kruh, bílý nápis /FR_SH)
+assets/photos/         reálné fotky použité na stránce (hero, o nás)
 _PODKLADY/             zdrojové fotky a materiály od klienta — NEPOUŽÍVAT přímo ve výstupu bez úpravy, není v gitu (viz .gitignore)
 ```
 
@@ -38,7 +39,7 @@ _PODKLADY/             zdrojové fotky a materiály od klienta — NEPOUŽÍVAT 
 ## Co ještě chybí / další kroky
 
 - [ ] Doladit mobilní a tablet verzi (breakpoints, hero na mobilu, marquee na malých displejích)
-- [ ] Nahradit placeholdery (`hero-visual`, `about-visual` bloky) reálnými fotkami z `_PODKLADY` (po výběru a úpravě klientem/majitelem)
+- [ ] Zkomprimovat fotky v `assets/photos/` před ostrým nasazením (aktuálně ~140 KB/kus)
 - [ ] Kontaktní formulář v sekci `#contact` (aktuálně jen tlačítko bez akce) — zvážit Netlify Forms
 - [ ] Doplnit další podstránky, pokud budou potřeba (galerie, kurzy/rozvrh, členové) — v konzultaci s klientem
 - [ ] SEO: title/meta description je nastavené, doplnit strukturovaná data (LocalBusiness / Organization) a OG tagy pro sdílení na sociálních sítích
