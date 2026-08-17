@@ -15,16 +15,23 @@
 
 <nav class="navbar navbar-expand-lg">
   <div class="container d-flex align-items-center justify-content-between">
-    <a href="#" class="d-flex align-items-center gap-2 text-decoration-none">
+    <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
       <span class="logo-badge"><img src="assets/logo.jpg" alt="Afresh DC logo"></span>
       <span class="display fs-5">AFRESH<span style="color:var(--accent)">DC</span></span>
     </a>
-    <ul class="navbar-nav flex-row d-none d-lg-flex">
-      <li class="nav-item"><a class="nav-link" href="#about">O nás</a></li>
-      <li class="nav-item"><a class="nav-link" href="#stats">Úspěchy</a></li>
-      <li class="nav-item"><a class="nav-link" href="#highlights">Nabídka</a></li>
-      <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Přepnout navigaci">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse flex-grow-0" id="navMain">
+      <ul class="navbar-nav flex-lg-row">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Úvod</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">O nás</a></li>
+        <li class="nav-item"><a class="nav-link" href="uspechy.html">Úspěchy</a></li>
+        <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+        <li class="nav-item"><a class="nav-link" href="videa.html">Videa</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -42,7 +49,7 @@
         </h1>
         <p class="text-dim fs-5 mb-4" style="max-width:480px;">Afresh Dance Community — hip hopová taneční rodina z Plzně. Hip hop, house, new jack swing a pořádná dávka energie na pódiu i mimo něj.</p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="#contact" class="btn btn-accent">Přidej se ke crew <i class="fa-solid fa-arrow-right ms-1"></i></a>
+          <a href="kontakt.html" class="btn btn-accent">Přidej se ke crew <i class="fa-solid fa-arrow-right ms-1"></i></a>
           <a href="https://www.instagram.com/afreshdancecommunity" target="_blank" class="btn btn-outline-custom"><i class="fa-brands fa-instagram me-2"></i>Sledovat na Instagramu</a>
         </div>
       </div>
@@ -113,6 +120,9 @@
       </div>
     </div>
   </div>
+  <div class="container text-center py-4">
+    <a href="uspechy.html" class="card-link">Všechny úspěchy <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
 </section>
 
 <section id="highlights">
@@ -132,7 +142,8 @@
           <span class="num-tag">01</span>
           <i class="fa-solid fa-music highlight-icon"></i>
           <h3 class="display fs-3 mb-3">Kurzy</h3>
-          <p class="text-dim mb-0">Pravidelné lekce hip hopu, house dance a dalších stylů pro všechny úrovně.</p>
+          <p class="text-dim mb-3">Pravidelné lekce hip hopu, house dance a dalších stylů pro všechny úrovně.</p>
+          <a href="kontakt.html" class="card-link">Přidej se <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -140,7 +151,8 @@
           <span class="num-tag">02</span>
           <i class="fa-solid fa-trophy highlight-icon"></i>
           <h3 class="display fs-3 mb-3">Vystoupení</h3>
-          <p class="mb-0">Choreografie a vystoupení na akcích v Plzni i po celé ČR.</p>
+          <p class="mb-3">Choreografie a vystoupení na akcích v Plzni i po celé ČR.</p>
+          <a href="uspechy.html" class="card-link">Naše úspěchy <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -148,8 +160,24 @@
           <span class="num-tag">03</span>
           <i class="fa-solid fa-people-group highlight-icon"></i>
           <h3 class="display fs-3 mb-3">Komunita</h3>
-          <p class="text-dim mb-0">Rodina lidí spojená tancem — nová sezona, noví členové, nová energie.</p>
+          <p class="text-dim mb-3">Rodina lidí spojená tancem — nová sezona, noví členové, nová energie.</p>
+          <a href="galerie.html" class="card-link">Galerie <i class="fa-solid fa-arrow-right"></i></a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-about py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="tag d-block mb-3">Sledujte nás</span>
+        <h2 class="display mb-3" style="font-size:clamp(30px,4vw,48px);">Podívejte se, jak to u nás žije</h2>
+        <p class="text-dim mb-0">Vystoupení, zkoušky i zákulisí — vše na naší video stránce.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end">
+        <a href="videa.html" class="btn btn-outline-custom"><i class="fa-solid fa-circle-play me-2"></i>Sledovat videa</a>
       </div>
     </div>
   </div>
@@ -159,7 +187,7 @@
   <div class="container">
     <span class="tag d-block mb-3">Nezůstávej v publiku</span>
     <h2 class="display mb-4" style="font-size:clamp(40px,7vw,80px);">Pojď tančit<br>s námi</h2>
-    <a href="#" class="btn btn-accent">Napsat nám <i class="fa-solid fa-arrow-right ms-1"></i></a>
+    <a href="kontakt.html" class="btn btn-accent">Napsat nám <i class="fa-solid fa-arrow-right ms-1"></i></a>
   </div>
 </section>
 
@@ -169,6 +197,7 @@
     <div class="d-flex gap-4">
       <a href="https://www.instagram.com/afreshdancecommunity" target="_blank"><i class="fa-brands fa-instagram me-1"></i>Instagram</a>
       <a href="https://www.facebook.com/afreshdc/" target="_blank"><i class="fa-brands fa-facebook me-1"></i>Facebook</a>
+      <a href="https://www.youtube.com/channel/UCGvXYdfGhHmPKsKzFxShCng" target="_blank"><i class="fa-brands fa-youtube me-1"></i>YouTube</a>
     </div>
   </div>
 </footer>

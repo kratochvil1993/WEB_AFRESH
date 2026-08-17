@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Galerie — Afresh Dance Community</title>
+<meta name="description" content="Fotky z vystoupení a soutěží taneční skupiny Afresh Dance Community z Plzně.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
+      <span class="logo-badge"><img src="assets/logo.jpg" alt="Afresh DC logo"></span>
+      <span class="display fs-5">AFRESH<span style="color:var(--accent)">DC</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Přepnout navigaci">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse flex-grow-0" id="navMain">
+      <ul class="navbar-nav flex-lg-row">
+        <li class="nav-item"><a class="nav-link" href="index.html">Úvod</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">O nás</a></li>
+        <li class="nav-item"><a class="nav-link" href="uspechy.html">Úspěchy</a></li>
+        <li class="nav-item"><a class="nav-link active" href="galerie.html">Galerie</a></li>
+        <li class="nav-item"><a class="nav-link" href="videa.html">Videa</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="tag d-block mb-3">Momentky z pódia</span>
+    <h1 class="display">Galerie</h1>
+    <p class="text-dim fs-5 mt-3" style="max-width:560px;">Fotky ze zkoušek, vystoupení a soutěží. Víc najdete na našem <a href="https://www.instagram.com/afreshdancecommunity" target="_blank" style="color:var(--accent2);">Instagramu</a>.</p>
+  </div>
+</header>
+
+<section class="pt-5">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="assets/photos/hero-breakdance.jpg" alt="Afresh DC — breakdance na pódiu" data-full="assets/photos/hero-breakdance.jpg" data-caption="Dynamika na pódiu"></div>
+      <div class="gallery-item"><img src="assets/photos/about-lineup.jpg" alt="Afresh DC — sestava na pódiu" data-full="assets/photos/about-lineup.jpg" data-caption="Sestava na pódiu"></div>
+      <div class="gallery-item"><img src="assets/photos/about-medals.jpg" alt="Afresh DC s medailemi" data-full="assets/photos/about-medals.jpg" data-caption="S medailemi po soutěži"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-01.jpg" alt="Afresh DC na pódiu" data-full="assets/gallery/gallery-01.jpg" data-caption="Sólo moment"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-02.jpg" alt="Afresh DC — skupinová choreografie" data-full="assets/gallery/gallery-02.jpg" data-caption="Skupinová choreografie"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-03.jpg" alt="Afresh DC — energie na pódiu" data-full="assets/gallery/gallery-03.jpg" data-caption="Energie na pódiu"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-04.jpg" alt="Afresh DC — vystoupení" data-full="assets/gallery/gallery-04.jpg" data-caption="Vystoupení"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-05.jpg" alt="Afresh DC — pózy na pódiu" data-full="assets/gallery/gallery-05.jpg" data-caption="Pózy na pódiu"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-06.jpg" alt="Afresh DC — parta na pódiu" data-full="assets/gallery/gallery-06.jpg" data-caption="Parta na pódiu"></div>
+      <div class="gallery-item"><img src="assets/gallery/gallery-07.jpg" alt="Afresh DC — choreografie" data-full="assets/gallery/gallery-07.jpg" data-caption="Choreografie"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <span class="tag d-block mb-3">Chceš zažít víc?</span>
+    <h2 class="display mb-4" style="font-size:clamp(40px,7vw,80px);">Pojď tančit<br>s námi</h2>
+    <a href="kontakt.html" class="btn btn-accent">Napsat nám <i class="fa-solid fa-arrow-right ms-1"></i></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>© 2026 Afresh Dance Community, Plzeň</div>
+    <div class="d-flex gap-4">
+      <a href="https://www.instagram.com/afreshdancecommunity" target="_blank"><i class="fa-brands fa-instagram me-1"></i>Instagram</a>
+      <a href="https://www.facebook.com/afreshdc/" target="_blank"><i class="fa-brands fa-facebook me-1"></i>Facebook</a>
+      <a href="https://www.youtube.com/channel/UCGvXYdfGhHmPKsKzFxShCng" target="_blank"><i class="fa-brands fa-youtube me-1"></i>YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Předchozí"><i class="fa-solid fa-chevron-left"></i></button>
+  <img src="" alt="" id="lightboxImg">
+  <button class="lightbox-next" id="lightboxNext" aria-label="Další"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

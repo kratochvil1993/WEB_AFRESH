@@ -13,12 +13,19 @@ Nový web pro taneční skupinu **Afresh Dance Community** (Plzeň, hip hop, zal
 
 ## Struktura projektu
 
+Web je **multi-page** — samostatné `.html` soubory, žádný router, nav a footer jsou v každém souboru zkopírované ručně.
+
 ```
-index.html          hlavní (zatím jediná) stránka — hero, o nás, úspěchy, nabídka, kontakt
-css/style.css        veškeré vlastní styly (dark theme, typografie, sekce)
-js/main.js            vlastní JS (zatím: aktivní stav v navigaci podle scrollu)
+index.html          domovská stránka — hero, o nás, úspěchy (teaser), nabídka, video teaser, CTA
+uspechy.html          statistiky, přehled akcí a soutěží
+galerie.html           grid fotek s lightboxem (klik na fotku, šipky, Esc)
+videa.html              embedovaná videa z YouTube + odkaz na kanál
+kontakt.html            kontaktní údaje + formulář napojený na Netlify Forms
+css/style.css        veškeré vlastní styly pro všechny stránky (dark theme, typografie, sekce, galerie, formulář)
+js/main.js            vlastní JS pro všechny stránky (aktivní stav v navigaci na homepage, lightbox na galerii)
 assets/logo.jpg       logo skupiny (černý kruh, bílý nápis /FR_SH)
-assets/photos/         reálné fotky použité na stránce (hero, o nás)
+assets/photos/         reálné fotky použité napříč stránkami (hero, o nás, úspěchy)
+assets/gallery/        další fotky použité jen v galerii
 _PODKLADY/             zdrojové fotky a materiály od klienta — NEPOUŽÍVAT přímo ve výstupu bez úpravy, není v gitu (viz .gitignore)
 ```
 
@@ -29,20 +36,24 @@ _PODKLADY/             zdrojové fotky a materiály od klienta — NEPOUŽÍVAT 
 - Inspirace weby profesionálních dance crews — velká bold typografie, vysoký kontrast, diagonální/asymetrické prvky, marquee pás se styly tance
 - Zatím jen desktop verze — **mobilní responzivita ještě není doladěná**, i když Bootstrap grid základní chování zvládá
 
-## Reálný obsah (ověřeno ze starého webu a soc. sítí)
+## Reálný obsah (ověřeno ze starého webu, soc. sítí a fotek v _PODKLADY)
 
 - Afresh D.C. vznikla v roce 2006 v Plzni
 - Styly: hip hop, house dance, new jack swing, hype
 - Facebook: https://www.facebook.com/afreshdc/
 - Instagram: https://www.instagram.com/afreshdancecommunity
+- YouTube: https://www.youtube.com/channel/UCGvXYdfGhHmPKsKzFxShCng
+- Z fotek v `_PODKLADY` je vidět účast na: TV finále MČR (O2 universum Praha), Best Dance Group European Championship (Opatija) a medaile/diplom ze soutěže — přesná umístění a roky je potřeba ověřit s klientem, na stránce `uspechy.html` jsou zatím uvedená opatrně (bez konkrétních umístění)
+- Videa na `videa.html` jsou dohledaná přes web search (World of Dance Austria/Switzerland/Berlin, obecné "Vystoupení Afresh Dance Community") — **nejsou ověřená přímo z klientova kanálu**, nutno potvrdit nebo vyměnit
 
 ## Co ještě chybí / další kroky
 
-- [ ] Doladit mobilní a tablet verzi (breakpoints, hero na mobilu, marquee na malých displejích)
-- [ ] Zkomprimovat fotky v `assets/photos/` před ostrým nasazením (aktuálně ~140 KB/kus)
-- [ ] Kontaktní formulář v sekci `#contact` (aktuálně jen tlačítko bez akce) — zvážit Netlify Forms
-- [ ] Doplnit další podstránky, pokud budou potřeba (galerie, kurzy/rozvrh, členové) — v konzultaci s klientem
-- [ ] SEO: title/meta description je nastavené, doplnit strukturovaná data (LocalBusiness / Organization) a OG tagy pro sdílení na sociálních sítích
+- [ ] Doladit mobilní a tablet verzi (breakpoints, hero na mobilu, marquee na malých displejích) — nav má funkční hamburger/collapse, zbytek stránek zatím ne
+- [ ] Zkomprimovat fotky v `assets/photos/` a `assets/gallery/` před ostrým nasazením (aktuálně ~100–165 KB/kus)
+- [ ] Ověřit s klientem videa na `videa.html` (viz výše) a případně vyměnit za oficiální nahrávky z jejich kanálu
+- [ ] Ověřit přesná umístění/roky soutěží na `uspechy.html`
+- [ ] Po nasazení na Netlify zkontrolovat, že formulář na `kontakt.html` chodí (Netlify Forms se aktivuje až po prvním deployi)
+- [ ] SEO: title/meta description je nastavené na každé stránce, doplnit strukturovaná data (LocalBusiness / Organization) a OG tagy pro sdílení na sociálních sítích
 - [ ] Nasadit na Netlify (drag & drop složky nebo napojení na git repo přes Netlify CI/CD)
 - [ ] Později napojit obsah na Simple CMS
 

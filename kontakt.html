@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Kontakt — Afresh Dance Community</title>
+<meta name="description" content="Kontaktujte taneční skupinu Afresh Dance Community z Plzně — nábor, spolupráce nebo dotazy ke kurzům.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
+      <span class="logo-badge"><img src="assets/logo.jpg" alt="Afresh DC logo"></span>
+      <span class="display fs-5">AFRESH<span style="color:var(--accent)">DC</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Přepnout navigaci">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse flex-grow-0" id="navMain">
+      <ul class="navbar-nav flex-lg-row">
+        <li class="nav-item"><a class="nav-link" href="index.html">Úvod</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">O nás</a></li>
+        <li class="nav-item"><a class="nav-link" href="uspechy.html">Úspěchy</a></li>
+        <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+        <li class="nav-item"><a class="nav-link" href="videa.html">Videa</a></li>
+        <li class="nav-item"><a class="nav-link active" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="tag d-block mb-3">Ozvi se nám</span>
+    <h1 class="display">Kontakt</h1>
+    <p class="text-dim fs-5 mt-3" style="max-width:560px;">Zajímá tě nábor, spolupráce nebo vystoupení na akci? Napiš nám nebo sleduj sociální sítě — reagujeme tam nejrychleji.</p>
+  </div>
+</header>
+
+<section class="pt-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <span class="tag d-block mb-3">Spojte se s námi</span>
+        <div class="contact-info-item">
+          <i class="fa-brands fa-instagram"></i>
+          <a href="https://www.instagram.com/afreshdancecommunity" target="_blank">@afreshdancecommunity</a>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-brands fa-facebook"></i>
+          <a href="https://www.facebook.com/afreshdc/" target="_blank">Afresh Dance Community</a>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-brands fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCGvXYdfGhHmPKsKzFxShCng" target="_blank">Afresh Dance Community</a>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Plzeň, Česká republika</span>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <span class="tag d-block mb-3">Napiš nám</span>
+        <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="kontakt">
+          <p class="d-none">
+            <label>Nevyplňuj toto pole: <input name="bot-field"></label>
+          </p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="jmeno">Jméno</label>
+              <input type="text" class="form-control" id="jmeno" name="jmeno" placeholder="Jak se jmenuješ?" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="email">E-mail</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="jmeno@email.cz" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="predmet">Předmět</label>
+              <select class="form-select" id="predmet" name="predmet">
+                <option>Nábor / kurzy</option>
+                <option>Spolupráce / vystoupení</option>
+                <option>Něco jiného</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="zprava">Zpráva</label>
+              <textarea class="form-control" id="zprava" name="zprava" rows="5" placeholder="Napiš nám, s čím ti můžeme pomoct." required></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-accent">Odeslat zprávu <i class="fa-solid fa-arrow-right ms-1"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>© 2026 Afresh Dance Community, Plzeň</div>
+    <div class="d-flex gap-4">
+      <a href="https://www.instagram.com/afreshdancecommunity" target="_blank"><i class="fa-brands fa-instagram me-1"></i>Instagram</a>
+      <a href="https://www.facebook.com/afreshdc/" target="_blank"><i class="fa-brands fa-facebook me-1"></i>Facebook</a>
+      <a href="https://www.youtube.com/channel/UCGvXYdfGhHmPKsKzFxShCng" target="_blank"><i class="fa-brands fa-youtube me-1"></i>YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
