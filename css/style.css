@@ -344,14 +344,21 @@ section{padding:9rem 0;}
   font-size:.75rem; letter-spacing:1.5px; text-transform:uppercase; display:inline-block; margin:0 .4rem .6rem 0;
 }
 
-.about-visual{position:relative; min-height:460px;}
+.about-visual{position:relative; min-height:540px;}
 .about-visual .block{
-  position:absolute; border-radius:var(--radius); border:1px solid var(--line);
-  object-fit:cover; width:66%; height:72%;
-  box-shadow:0 20px 50px rgba(0,0,0,0.45);
+  position:absolute; border-radius:var(--radius);
+  object-fit:cover;
+  box-shadow:0 20px 50px rgba(0,0,0,0.55);
 }
-.about-visual .b1{width:66%; height:72%; top:0; right:0; z-index:1;}
-.about-visual .b2{width:48%; height:46%; bottom:0; left:0; z-index:2; border-width:3px; border-color:var(--bg-alt);}
+/* Bloky se zase pokládají přes sebe (layered/diagonal efekt), ale tentokrát
+   je odděluje černý rámeček (var(--bg), plné černé — tmavší než podklad
+   sekce i než fotky), který zůstává čitelný i tam, kde jedna fotka leží
+   přes druhou — tím se řeší původní problém (fotky splývaly, protože je
+   oddělovala jen 3px hranička skoro shodné barvy). */
+.about-visual .b1{width:66%; height:72%; top:0; right:0; z-index:1; border:3px solid var(--bg);}
+.about-visual .b2{width:52%; height:48%; bottom:0; left:0; z-index:2; border:3px solid var(--bg);}
+/* b3 — třetí fotka jen na indexu (onas.html má stejný .about-visual, ale bez b3) */
+.about-visual .b3{width:38%; height:34%; bottom:0; right:0; z-index:3; border:3px solid var(--bg);}
 
 /* STATS */
 .stats-section{background:var(--bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
