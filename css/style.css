@@ -24,7 +24,7 @@ body{
   overflow-x:hidden;
 }
 html{scroll-behavior:smooth;}
-.display{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:-0.5px;}
+.display{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0;}
 .tag{color:var(--accent2); font-size:.8rem; letter-spacing:4px; text-transform:uppercase; font-weight:700;}
 .text-dim{color:var(--text-dim) !important;}
 /* ---------- Pill button with sliding icon ----------
@@ -128,15 +128,23 @@ html{scroll-behavior:smooth;}
 @media (prefers-reduced-motion: reduce){
   .pill-btn__icon, .pill-btn__label{transition:none;}
 }
-/* Outline variant — border instead of a filled pill, transparent background */
+/* Outline variant — border instead of a filled pill, translucent black
+   background (keeps the label legible over photos/video) that turns into a
+   solid, opaque yellow fill on hover/focus. */
 .pill-btn--outline{
-  --btn-bg:transparent;
+  --btn-bg:rgba(0,0,0,.3);
   --btn-fg:var(--text);
+  --btn-border:1px solid var(--accent2);
+}
+.pill-btn--outline:hover,
+.pill-btn--outline:focus-visible{
+  --btn-bg:var(--accent2);
+  --btn-fg:#0a0a0a;
   --btn-border:1px solid var(--accent2);
 }
 .pill-btn--outline:hover .pill-btn__label,
 .pill-btn--outline:focus-visible .pill-btn__label{
-  box-shadow:0 0 24px rgba(255,212,0,.25);
+  box-shadow:0 0 24px rgba(255,212,0,.35);
 }
 
 /* ---------- Scroll reveal ----------
@@ -362,9 +370,8 @@ section{padding:9rem 0;}
 .about-visual .b3{width:38%; height:34%; bottom:0; right:0; z-index:3; border:3px solid var(--bg);}
 
 /* STATS */
-.stats-section{background:var(--bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-.stat-col{padding:3.5rem 1rem; border-right:1px solid var(--line); text-align:center; transition:background .3s ease;}
-.stat-col:hover{background:var(--card);}
+.stats-section{background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.stat-col{padding:3.5rem 1rem; border-right:1px solid var(--line); text-align:center;}
 .stat-num{font-family:'Anton',sans-serif; font-size:3.4rem; color:var(--accent2); line-height:1;}
 .stat-label{margin-top:.8rem; font-size:.8rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-dim);}
 
@@ -445,8 +452,8 @@ footer a:hover{color:var(--text);}
 }
 .page-hero-photo .text-dim{color:rgba(255,255,255,0.85) !important;}
 
-.card-link{color:var(--accent2); font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
-.card-link:hover{color:var(--text);}
+.card-link{color:var(--accent); font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
+.card-link:hover{color:var(--accent2);}
 .highlight-card.accent .card-link{color:#0a0a0a;}
 
 /* ACHIEVEMENTS LIST */
