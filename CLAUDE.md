@@ -14,7 +14,9 @@ Deployment target is **Netlify** as a static site (drag-and-drop the folder, or 
 
 ## Git workflow
 
-Work directly on `main` — do not create feature branches or PRs for changes in this repo, unless the user explicitly asks for a branch/PR. Commit and push straight to `main`.
+Work directly on `main` — do not create feature branches or PRs for changes in this repo, unless the user explicitly asks for a branch/PR.
+
+Never run `git commit` or `git push` without the user's explicit go-ahead in that turn. Make the requested edits and leave the working tree as-is; ask before committing/pushing rather than assuming a standing approval.
 
 ## Architecture
 
