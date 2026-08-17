@@ -566,7 +566,7 @@ footer a:hover{color:var(--text);}
   padding:10.5rem 0 4.5rem;
   background:
     radial-gradient(ellipse 55% 60% at 85% 15%, rgba(255,45,85,0.22), transparent 60%),
-    var(--bg);
+    var(--bg-alt);
 }
 .page-hero h1{font-size:clamp(42px,6vw,76px); line-height:.95;}
 
