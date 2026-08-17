@@ -1,6 +1,6 @@
 :root{
   --bg: #000000;
-  --bg-alt: #121212;
+  --bg-alt: #070707;
   --card: #161616;
   --accent: #ff2d55;
   --accent2: #ffd400;
@@ -211,9 +211,8 @@ html{scroll-behavior:smooth;}
 .navbar{
   position:fixed; top:0; width:100%; z-index:100;
   padding:.7rem 0;
-  background:rgba(10,10,10,0.55);
-  backdrop-filter:blur(10px);
-  transition:padding .3s ease, background .3s ease;
+  background:transparent;
+  transition:padding .3s ease, background .3s ease, backdrop-filter .3s ease;
 }
 /* Full-bleed inner row (container-fluid, not .container) so the nav actually
    hugs the true viewport edge instead of stopping at Bootstrap's boxed
@@ -230,15 +229,18 @@ html{scroll-behavior:smooth;}
   content:"";
   position:absolute; left:0; right:0; bottom:-1px; height:1px;
   background:linear-gradient(90deg, transparent, var(--accent) 15%, var(--accent2) 50%, var(--accent) 85%, transparent);
-  opacity:.18;
+  opacity:0;
   transition:opacity .3s ease;
 }
 .navbar.is-scrolled::after{opacity:.1;}
 /* Shrunk/solidified state once the page has scrolled past the hero a bit
-   (toggled in js/main.js on a passive scroll listener). */
+   (toggled in js/main.js on a passive scroll listener) — only once scrolled
+   does the navbar pick up a dark translucent background, blur and the
+   hairline above; at the top of the page it stays fully transparent. */
 .navbar.is-scrolled{
   padding:.35rem 0;
   background:rgba(10,10,10,0.88);
+  backdrop-filter:blur(10px);
 }
 .logo-badge{
   width:100px; height:100px; border-radius:50%; overflow:hidden;
@@ -262,6 +264,13 @@ html{scroll-behavior:smooth;}
 }
 .navbar-nav .nav-link:hover::after{right:0;}
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active{color:var(--accent2);}
+.navbar-nav .nav-link--highlight{
+  background:var(--accent); color:#0a0a0a; border-radius:999px;
+  padding:.4rem 1rem; transition:background .2s ease, color .2s ease;
+}
+.navbar-nav .nav-link--highlight::after{display:none;}
+.navbar-nav .nav-link--highlight:hover,
+.navbar-nav .nav-link--highlight.active{background:var(--accent2); color:#0a0a0a;}
 .navbar-toggler{border:1px solid var(--line); color:var(--text); padding:.5rem .7rem; background:transparent;}
 .navbar-toggler:focus{box-shadow:none;}
 .navbar-collapse{background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.5rem; margin-top:1rem;}
