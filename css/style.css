@@ -450,7 +450,6 @@ section{padding:9rem 0;}
    oddělovala jen 3px hranička skoro shodné barvy). */
 .about-visual .b1{width:66%; height:72%; top:0; right:0; z-index:1; border:3px solid var(--bg);}
 .about-visual .b2{width:52%; height:48%; bottom:0; left:0; z-index:2; border:3px solid var(--bg);}
-/* b3 — třetí fotka jen na indexu (onas.html má stejný .about-visual, ale bez b3) */
 .about-visual .b3{width:38%; height:34%; bottom:0; right:0; z-index:3; border:3px solid var(--bg);}
 
 /* STATS */
