@@ -87,6 +87,27 @@ document.addEventListener('DOMContentLoaded', () => {
     applyNavScrollState();
   }
 
+  // Tlačítko "zpět nahoru": objeví se po odscrollování kousek dolů, sdílí
+  // rAF throttling se stejným scroll listenerem jako navbar výše.
+  const backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    let topTicking = false;
+    const applyBackToTopState = () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+      topTicking = false;
+    };
+    document.addEventListener('scroll', () => {
+      if (!topTicking) {
+        requestAnimationFrame(applyBackToTopState);
+        topTicking = true;
+      }
+    }, { passive: true });
+    applyBackToTopState();
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   // Lightbox pro galerii
   if (typeof GLightbox !== 'undefined' && document.querySelector('.glightbox')) {
     GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
@@ -126,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fadeEffect: { crossFade: true },
       speed: 700,
       autoHeight: true,
-      autoplay: { delay: 6000, disableOnInteraction: false },
+      autoplay: { delay: 5000, disableOnInteraction: false },
       pagination: { el: '.hero-swiper-pagination', clickable: true },
       navigation: { prevEl: '.hero-swiper-prev', nextEl: '.hero-swiper-next' },
     });
