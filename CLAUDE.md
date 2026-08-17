@@ -12,6 +12,10 @@ There is no build step, package manager, or test suite in this repository. It is
 
 Deployment target is **Netlify** as a static site (drag-and-drop the folder, or connect the git repo for CI/CD). No environment variables or Netlify functions are used.
 
+## Git workflow
+
+Work directly on `main` — do not create feature branches or PRs for changes in this repo, unless the user explicitly asks for a branch/PR. Commit and push straight to `main`.
+
 ## Architecture
 
 - Plain **HTML + CSS + vanilla JavaScript** — no framework, no bundler, no npm dependencies. Do not introduce a build pipeline or JS framework without explicit direction.
