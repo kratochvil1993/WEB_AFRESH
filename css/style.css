@@ -491,6 +491,24 @@ footer a:hover{color:var(--text);}
 .contact-info-item a, .contact-info-item span{color:var(--text); text-decoration:none;}
 .contact-info-item a:hover{color:var(--accent2);}
 
+/* QUICK CONTACT / BUSINESS INFO CHIPS — light "hint" of phone/email/address,
+   used on the homepage CTA band. Same icon-circle language as .contact-info-item
+   above, just laid out as standalone boxes instead of a stacked list. */
+.info-chip-row{display:flex; flex-wrap:wrap; gap:1rem; margin-top:2.8rem;}
+.info-chip{
+  display:flex; align-items:center; gap:14px;
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius);
+  padding:1.1rem 1.6rem; text-decoration:none; color:var(--text);
+  transition:border-color .25s ease, transform .25s ease;
+}
+.info-chip:hover{border-color:var(--accent2); transform:translateY(-3px); color:var(--text);}
+.info-chip i{width:42px; height:42px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--accent2); font-size:1rem; flex-shrink:0;}
+.info-chip__label{display:block; font-size:.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-dim); margin-bottom:2px;}
+.info-chip__value{font-weight:700;}
+@media (max-width:575px){
+  .info-chip-row{justify-content:center;}
+}
+
 .form-control, .form-select{
   background:var(--bg-alt); border:1px solid var(--line); color:var(--text);
   padding:.85rem 1rem; border-radius:var(--radius-sm);
