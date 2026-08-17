@@ -1,10 +1,13 @@
 // Afresh DC — main.js
 // Sdílené chování napříč všemi stránkami: lightbox pro galerii (na stránce galerie.html),
-// postavený na vendorované knihovně GLightbox (vendor/glightbox/), hero swiper na
-// úvodní stránce (index.html), postavený na vendorované knihovně Swiper (vendor/swiper/),
-// scroll-reveal animace pro [data-reveal] prvky, count-up animace čísel ve stats sekci
-// a shrink efekt navbaru při scrollu. Navigace je klasické statické menu (odkazy na
-// jednotlivé stránky, aktivní stránka je označená přímo v HTML) — bez JS scrollspy chování.
+// postavený na vendorované knihovně GLightbox (vendor/glightbox/), a dvě instance
+// hero swiperu, obě postavené na vendorované knihovně Swiper (vendor/swiper/) —
+// obrázkový hero swiper (.hero-swiper) na archivní test-hero-slider.html a text swiper
+// (.hero-text-swiper) na index.html, kde běží nad videem na pozadí (.hero-video, mimo
+// swiper), scroll-reveal animace pro [data-reveal] prvky, count-up animace čísel ve
+// stats sekci a shrink efekt navbaru při scrollu. Navigace je klasické statické menu
+// (odkazy na jednotlivé stránky, aktivní stránka je označená přímo v HTML) — bez JS
+// scrollspy chování.
 
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -89,8 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
     GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
   }
 
-  // Hero swiper na úvodní stránce — každý slide má vlastní text (viz .hero-slide-content),
-  // který se přepíná synchronně s obrázkem podle aktuálního reálného indexu slidu.
+  // Hero swiper — obrázkové slidy, dnes jen na archivní test-hero-slider.html. Každý
+  // slide má vlastní text (viz .hero-slide-content), který se přepíná synchronně
+  // s obrázkem podle aktuálního reálného indexu slidu.
   if (typeof Swiper !== 'undefined' && document.querySelector('.hero-swiper')) {
     const heroTexts = document.querySelectorAll('.hero-slide-content');
     new Swiper('.hero-swiper', {
@@ -108,6 +112,23 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         },
       },
+    });
+  }
+
+  // Text swiper na úvodní stránce (index.html) — pozadí je smyčka videa (.hero-video,
+  // mimo tenhle swiper úplně), jen text nad ním (.hero-text-slide) je vlastní Swiper,
+  // přepínatelný stejnými .hero-swiper-controls (šipky + tečky) jako obrázkový swiper
+  // na test-hero-slider.html. autoHeight, protože oba texty mají různě dlouhý obsah.
+  if (typeof Swiper !== 'undefined' && document.querySelector('.hero-text-swiper')) {
+    new Swiper('.hero-text-swiper', {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      speed: 700,
+      autoHeight: true,
+      autoplay: { delay: 6000, disableOnInteraction: false },
+      pagination: { el: '.hero-swiper-pagination', clickable: true },
+      navigation: { prevEl: '.hero-swiper-prev', nextEl: '.hero-swiper-next' },
     });
   }
 });

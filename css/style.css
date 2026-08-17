@@ -236,6 +236,15 @@ html{scroll-behavior:smooth;}
 .hero-swiper .swiper-slide{
   background-size:cover; background-position:center; filter:grayscale(.15) contrast(1.08);
 }
+/* Video hero na index.html — nahrazuje obrázkový .hero-swiper (ten žije dál na
+   test-hero-slider.html jako archiv). Video běží na pozadí celé hero sekce,
+   stejný .hero-overlay gradient a stejný .hero-marquee ticker dole zůstávají beze
+   změny, jen se místo slidů obrázků přehrává smyčka videa. */
+.hero-video{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
+  filter:grayscale(.15) contrast(1.08);
+}
 .hero-overlay{
   position:absolute; inset:0; z-index:1; pointer-events:none;
   background:
@@ -257,6 +266,17 @@ html{scroll-behavior:smooth;}
   text-shadow:0 2px 18px rgba(0,0,0,0.55);
 }
 .hero-slide-content p.text-dim{color:var(--text) !important;}
+
+/* Text swiper na index.html — nese jen text (viz .hero-text-slide), video na pozadí
+   běží nezávisle. autoHeight v JS init (viz main.js) mění výšku kontejneru podle
+   aktuálního slidu, takže .swiper-slide nesmí mít vlastní pevnou výšku. Fade efekt
+   zajišťuje Swiper sám, žádné ruční opacity/visibility jako u .hero-slide-content. */
+.hero-text-swiper{width:100%;}
+.hero-text-swiper .swiper-slide{height:auto;}
+.hero-text-slide h1, .hero-text-slide p, .hero-text-slide .tag{
+  text-shadow:0 2px 18px rgba(0,0,0,0.55);
+}
+.hero-text-slide p.text-dim{color:var(--text) !important;}
 
 /* Ovládání swiperu (šipky + pagination) žije mimo stacking context .hero-swiperu jako
    jedna lišta dole uprostřed, aby bylo vždy nad .hero-overlay gradientem a nekolidovalo

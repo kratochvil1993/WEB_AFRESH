@@ -46,84 +46,88 @@
   </nav>
 
   <section class="hero">
-    <div class="swiper hero-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url('assets/photos/hero-breakdance.webp')"></div>
-        <div class="swiper-slide" style="background-image:url('assets/photos/about-lineup.webp')"></div>
+    <video class="hero-video" autoplay muted loop playsinline
+      poster="assets/photos/hero-breakdance.webp">
+      <source src="assets/video/hero_video_4096k_noaudio.webm" type="video/webm">
+      <source src="assets/video/hero_video_4096k_noaudio.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="row">
+        <div class="col-lg-7">
+          <!-- Text nad videem je vlastní Swiper (nezávislý na .hero-video na pozadí) —
+               přepínatelný šipkami/tečkami z .hero-swiper-controls stejně jako ve staré
+               obrázkové verzi (viz test-hero-slider.html), jen tady jede jen text. -->
+          <div class="swiper hero-text-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide hero-text-slide">
+                <div class="d-flex align-items-center mb-4">
+                  <span class="eyebrow-dot"></span>
+                  <span class="tag">Plzeň · Od 2006</span>
+                </div>
+                <h1 class="display mb-4">
+                  <span class="fill">TANEC.</span> VÁŠEŇ.<br>
+                  <span class="outline">CREW.</span>
+                </h1>
+                <p class="text-dim fs-5 mb-4" style="max-width:480px;">Afresh Dance Community — hip hopová taneční
+                  rodina z Plzně. Hip hop, house, new jack swing a pořádná dávka energie na pódiu i mimo něj.</p>
+                <div class="d-flex flex-wrap gap-3">
+                  <a href="uspechy.html" class="pill-btn">
+                    <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                    <span class="pill-btn__label">Naše úspěchy</span>
+                    <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                  </a>
+                  <a href="https://www.instagram.com/afreshdancecommunity" target="_blank"
+                    class="pill-btn pill-btn--outline">
+                    <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
+                        class="fa-brands fa-instagram"></i></span>
+                    <span class="pill-btn__label">Sledovat na Instagramu</span>
+                    <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide hero-text-slide">
+                <div class="d-flex align-items-center mb-4">
+                  <span class="eyebrow-dot"></span>
+                  <span class="tag">Nábor · Nová sezóna</span>
+                </div>
+                <h1 class="display mb-4">
+                  OTVÍRÁME <span class="fill">NÁBOR</span><br>
+                  NOVÝCH <span class="outline">TANEČNÍKŮ</span>
+                </h1>
+                <p class="text-dim fs-5 mb-4" style="max-width:480px;">Pokud tě baví tanec a chceš rozvíjet svou
+                  osobnost a lásku k tanci, tak se přidej k jedné z nejlepších streetdancových skupin v Plzni!!</p>
+                <div class="d-flex flex-wrap gap-3">
+                  <a href="#" class="pill-btn">
+                    <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                    <span class="pill-btn__label">Více info</span>
+                    <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                  </a>
+                  <a href="onas.html" class="pill-btn pill-btn--outline">
+                    <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                    <span class="pill-btn__label">O nás</span>
+                    <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
+                        class="fa-solid fa-arrow-right"></i></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-overlay"></div>
     <div class="hero-swiper-controls">
       <button type="button" class="hero-swiper-arrow hero-swiper-prev" aria-label="Předchozí slide"><i
           class="fa-solid fa-chevron-left"></i></button>
       <div class="swiper-pagination hero-swiper-pagination"></div>
       <button type="button" class="hero-swiper-arrow hero-swiper-next" aria-label="Další slide"><i
           class="fa-solid fa-chevron-right"></i></button>
-    </div>
-    <div class="container hero-content">
-      <div class="row">
-        <div class="col-lg-7">
-          <div class="hero-copy">
-            <div class="hero-slide-content active" data-slide="0">
-              <div class="d-flex align-items-center mb-4">
-                <span class="eyebrow-dot"></span>
-                <span class="tag">Plzeň · Od 2006</span>
-              </div>
-              <h1 class="display mb-4">
-                <span class="fill">TANEC.</span> VÁŠEŇ.<br>
-                <span class="outline">CREW.</span>
-              </h1>
-              <p class="text-dim fs-5 mb-4" style="max-width:480px;">Afresh Dance Community — hip hopová taneční rodina
-                z Plzně. Hip hop, house, new jack swing a pořádná dávka energie na pódiu i mimo něj.</p>
-              <div class="d-flex flex-wrap gap-3">
-                <a href="uspechy.html" class="pill-btn">
-                  <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                  <span class="pill-btn__label">Naše úspěchy</span>
-                  <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                </a>
-                <a href="https://www.instagram.com/afreshdancecommunity" target="_blank"
-                  class="pill-btn pill-btn--outline">
-                  <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
-                      class="fa-brands fa-instagram"></i></span>
-                  <span class="pill-btn__label">Sledovat na Instagramu</span>
-                  <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                </a>
-              </div>
-            </div>
-            <div class="hero-slide-content" data-slide="1">
-              <div class="d-flex align-items-center mb-4">
-                <span class="eyebrow-dot"></span>
-                <span class="tag">Nábor · Nová sezóna</span>
-              </div>
-              <h1 class="display mb-4">
-                OTVÍRÁME <span class="fill">NÁBOR</span><br>
-                NOVÝCH <span class="outline">TANEČNÍKŮ</span>
-              </h1>
-              <p class="text-dim fs-5 mb-4" style="max-width:480px;">Pokud tě baví tanec a chceš rozvíjet svou osobnost
-                a lásku k tanci, tak se přidej k jedné z nejlepších streetdancových skupin v Plzni!!</p>
-              <div class="d-flex flex-wrap gap-3">
-                <a href="#" class="pill-btn">
-                  <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                  <span class="pill-btn__label">Více info</span>
-                  <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                </a>
-                <a href="onas.html" class="pill-btn pill-btn--outline">
-                  <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                  <span class="pill-btn__label">O nás</span>
-                  <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
-                      class="fa-solid fa-arrow-right"></i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="marquee-strip hero-marquee">
       <span>HIP HOP • HOUSE DANCE • AFRO • DANCEHALL • CHOREOGRAFIE •&nbsp;</span>
