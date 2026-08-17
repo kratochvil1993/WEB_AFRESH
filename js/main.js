@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
       fadeEffect: { crossFade: true },
       speed: 700,
       autoplay: { delay: 5000, disableOnInteraction: false },
-      pagination: { el: '.swiper-pagination', clickable: true },
+      pagination: { el: '.hero-swiper-pagination', clickable: true },
+      navigation: { prevEl: '.hero-swiper-prev', nextEl: '.hero-swiper-next' },
       on: {
         slideChange(swiper) {
           heroTexts.forEach(el => {
