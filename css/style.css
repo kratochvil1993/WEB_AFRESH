@@ -394,7 +394,7 @@ html{scroll-behavior:smooth;}
 }
 
 section{padding:9rem 0;}
-.section-about{background:var(--bg-alt);}
+.section-about{background:var(--bg);}
 .section-about--dark{background:var(--bg);}
 
 .style-badge{
@@ -470,8 +470,10 @@ section{padding:9rem 0;}
 
 .cta-band{
   text-align:center; padding:5.5rem 0;
-  background:radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,45,85,0.18), transparent 60%), var(--bg-alt);
+  background:radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,45,85,0.18), transparent 60%), var(--bg);
 }
+
+#highlights{background:var(--bg-alt);}
 
 footer{border-top:1px solid var(--line); padding:3.2rem 0; color:var(--text-dim); font-size:.85rem;}
 footer a{color:var(--text-dim); text-decoration:none;}
