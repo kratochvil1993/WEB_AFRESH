@@ -139,22 +139,78 @@ html{scroll-behavior:smooth;}
   box-shadow:0 0 24px rgba(255,45,85,.2);
 }
 
+/* ---------- Scroll reveal ----------
+   Generic entrance animation: elements with [data-reveal] start faded/offset
+   and animate in once they cross into the viewport (see js/main.js —
+   IntersectionObserver, one-shot, doesn't re-trigger on scroll-back).
+   Stagger multiple elements in the same group with .reveal-delay-1..4
+   (100ms steps). Respects prefers-reduced-motion. */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .7s ease, transform .7s ease;
+  transition-delay:var(--reveal-extra-delay, 0s);
+}
+[data-reveal].is-visible{opacity:1; transform:none;}
+.reveal-delay-1{--reveal-extra-delay:.1s;}
+.reveal-delay-2{--reveal-extra-delay:.2s;}
+.reveal-delay-3{--reveal-extra-delay:.3s;}
+.reveal-delay-4{--reveal-extra-delay:.4s;}
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{opacity:1; transform:none; transition:none;}
+}
+
 /* NAVBAR */
 .navbar{
   position:fixed; top:0; width:100%; z-index:100;
   padding:.7rem 0;
   background:rgba(10,10,10,0.55);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
+  transition:padding .3s ease, background .3s ease;
+}
+/* Full-bleed inner row (container-fluid, not .container) so the nav actually
+   hugs the true viewport edge instead of stopping at Bootstrap's boxed
+   max-width — the logo/menu should feel anchored to the browser edges, not
+   floating in a centered column. */
+.navbar-inner{
+  padding-left:clamp(20px,4vw,64px);
+  padding-right:clamp(20px,4vw,64px);
+}
+/* Thin brand-gradient hairline instead of a flat translucent border — a
+   quiet accent that ties the navbar to the pill-buttons/hero glow without
+   adding weight. */
+.navbar::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height:1px;
+  background:linear-gradient(90deg, transparent, var(--accent) 15%, var(--accent2) 50%, var(--accent) 85%, transparent);
+  opacity:.35;
+  transition:opacity .3s ease;
+}
+.navbar.is-scrolled::after{opacity:.6;}
+/* Shrunk/solidified state once the page has scrolled past the hero a bit
+   (toggled in js/main.js on a passive scroll listener). */
+.navbar.is-scrolled{
+  padding:.35rem 0;
+  background:rgba(10,10,10,0.88);
 }
 .logo-badge{
   width:64px; height:64px; border-radius:50%; overflow:hidden;
+  transition:width .3s ease, height .3s ease, box-shadow .3s ease;
 }
+.logo-badge:hover{box-shadow:0 0 0 3px rgba(255,45,85,.35);}
+.navbar.is-scrolled .logo-badge{width:48px; height:48px;}
 .logo-badge img{width:100%; height:100%; object-fit:cover; display:block;}
 .navbar-nav .nav-link{
   color:var(--text); font-size:.8rem; letter-spacing:2px; text-transform:uppercase; font-weight:600;
-  margin:0 1rem; position:relative;
+  margin:0 1rem; position:relative; padding-bottom:4px;
 }
+.navbar-nav .nav-link::after{
+  content:"";
+  position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--accent2);
+  transition:right .25s ease;
+}
+.navbar-nav .nav-link:hover::after{right:0;}
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active{color:var(--accent2);}
 .navbar-toggler{border:1px solid var(--line); color:var(--text); padding:.5rem .7rem; background:transparent;}
 .navbar-toggler:focus{box-shadow:none;}
@@ -204,7 +260,7 @@ html{scroll-behavior:smooth;}
    jedna lišta dole uprostřed, aby bylo vždy nad .hero-overlay gradientem a nekolidovalo
    s textem, který zabírá levou část hero sekce. */
 .hero-swiper-controls{
-  position:absolute; left:0; right:0; bottom:24px; z-index:2;
+  position:absolute; left:0; right:0; bottom:76px; z-index:2;
   display:flex; align-items:center; justify-content:center; gap:22px;
 }
 .hero-swiper-pagination{position:static !important; width:auto !important;}
@@ -239,6 +295,23 @@ html{scroll-behavior:smooth;}
   text-transform:uppercase; padding-right:2.5rem; animation:marquee 24s linear infinite;
 }
 @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* Ticker žije uvnitř hero, přilepený na spodní hranu slideru — nad swiperem i overlayem,
+   ovládání slideru (šipky/pagination) je proto posunuté výš, aby s ním nekolidovalo. Text
+   najíždí celý zprava mimo obrazovku a po projetí pruhem zase celý zmizí vlevo, místo
+   plynulého nekonečného pásu — proto vlastní (nezdvojený) text a jiná animace. */
+.hero-marquee{
+  position:absolute; left:0; right:0; bottom:0; z-index:3;
+  padding:.75rem 0;
+}
+.hero-marquee span{
+  animation-name:marquee-enter;
+  animation-duration:16s;
+}
+@keyframes marquee-enter{
+  0%{transform:translateX(100vw);}
+  100%{transform:translateX(-100%);}
+}
 
 section{padding:9rem 0;}
 .section-about{background:var(--bg-alt);}
