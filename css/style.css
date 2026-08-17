@@ -571,19 +571,6 @@ footer a:hover{color:var(--text);}
 }
 .page-hero h1{font-size:clamp(42px,6vw,76px); line-height:.95;}
 
-/* PAGE HERO with background photo (e.g. O nás) — keeps the same pink radial gradient,
-   layered over a dark overlay + the photo so the heading text stays readable. */
-.page-hero-photo{
-  background:
-    radial-gradient(ellipse 55% 60% at 85% 15%, rgba(255,45,85,0.3), transparent 60%),
-    linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.55)),
-    url('../assets/photos/hero-breakdance.webp') center/cover no-repeat;
-}
-.page-hero-photo h1, .page-hero-photo p, .page-hero-photo .tag{
-  text-shadow:0 2px 18px rgba(0,0,0,0.55);
-}
-.page-hero-photo .text-dim{color:rgba(255,255,255,0.85) !important;}
-
 .card-link{color:var(--accent); font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
 .card-link:hover{color:var(--accent2);}
 .highlight-card.accent .card-link{color:#0a0a0a;}
