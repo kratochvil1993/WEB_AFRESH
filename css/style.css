@@ -780,7 +780,7 @@ footer a:hover{color:var(--text);}
 }
 .lektor-card:hover{border-color:var(--accent2); transform:translateY(-6px);}
 .lektor-avatar{
-  width:104px; height:104px; margin:0 auto 1.4rem; border-radius:50%;
+  width:136px; height:136px; margin:0 auto 1.4rem; border-radius:50%;
   background:var(--bg); border:1px solid var(--line);
   display:flex; align-items:center; justify-content:center;
   font-size:2.4rem; color:var(--accent2);
