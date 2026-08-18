@@ -253,16 +253,6 @@ body:has(.page-hero--yellow) .navbar:not(.is-scrolled){
   background:rgba(10,10,10,0.88);
   backdrop-filter:blur(10px);
 }
-/* The logo-badge's usual downward bleed (below) is designed to overflow onto
-   whatever sits behind the hero — normally a dark/photo background it can
-   blend into unnoticed. A yellow hero's flat, hard-edged color seam right at
-   the navbar's bottom edge has nothing to blend into, so the bleeding circle
-   just looks like it's awkwardly sinking into/touching that seam. Cancel the
-   bleed pre-scroll on yellow-hero pages so the badge stays fully inside the
-   dark bar instead (post-scroll already resets it via .is-scrolled below). */
-body:has(.page-hero--yellow) .navbar:not(.is-scrolled) .logo-badge{
-  margin:0; transform:translateY(0);
-}
 .logo-badge{
   width:100px; height:100px; border-radius:50%; overflow:hidden;
   flex:0 0 auto;
