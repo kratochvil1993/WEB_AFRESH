@@ -1,3 +1,9 @@
+/* Tohle je zdrojový (čitelný) soubor — HTML stránky ho ale nenačítají přímo, linkují
+   na minifikovanou css/style.min.css (menší přenos, viz PageSpeed audit "Minifikujte
+   kód CSS"). Po každé úpravě tohohle souboru je potřeba style.min.css ručně
+   přegenerovat (žádný build krok/watcher v projektu není, viz CLAUDE.md):
+     npx clean-css-cli -O2 --format keep-breaks:off -o css/style.min.css css/style.css
+*/
 :root{
   --bg: #000000;
   --bg-alt: #070707;

@@ -14,14 +14,14 @@
 <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid navbar-inner d-flex align-items-center justify-content-between">
     <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
-      <span class="logo-badge"><img src="assets/logo-white.png" alt="Afresh DC logo"></span>
+      <span class="logo-badge"><img src="assets/logo-white.png" alt="Afresh DC logo" width="200" height="200"></span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Přepnout navigaci">
       <i class="fa-solid fa-bars"></i>
@@ -58,9 +58,14 @@
     <p class="text-dim fs-5 mt-3" style="max-width:560px;">Pokud tě baví tanec a chceš rozvíjet svou osobnost a lásku k tanci, přidej se k jedné z nejlepších streetdancových skupin v Plzni!</p>
   </div>
   <div class="hero-reel">
-    <video class="hero-reel__video" autoplay muted loop playsinline>
-      <source src="assets/video/test_3072k_noaudio.webm" type="video/webm">
-      <source src="assets/video/test_3072k_noaudio.mp4" type="video/mp4">
+    <!-- Lazy hero video, stejný vzorec jako .hero-video na index.html (viz komentář
+         tam i "Lazy hero video" v js/main.js) — poster je vyextrahovaný snímek z
+         videa, aby na obrazovce vždy něco bylo, i než se video dotáhne / pokud se
+         nedotáhne vůbec (prefers-reduced-motion, pomalé připojení). -->
+    <video class="hero-reel__video" data-lazy-video muted loop playsinline preload="none"
+      poster="assets/photos/nabor-hero-poster.webp">
+      <source data-src="assets/video/test_3072k_noaudio.webm" type="video/webm">
+      <source data-src="assets/video/test_3072k_noaudio.mp4" type="video/mp4">
     </video>
   </div>
 </header>
@@ -119,7 +124,7 @@
     <div class="footer-top">
       <div class="footer-col footer-col--brand" data-reveal>
         <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
-          <span class="footer-logo"><img src="assets/logo-white.png" alt="Afresh DC logo"></span>
+          <span class="footer-logo"><img src="assets/logo-white.png" alt="Afresh DC logo" width="200" height="200"></span>
           <span class="footer-brand-name">Afresh Dance Community</span>
         </a>
         <p class="footer-tagline text-dim">Hip hopová taneční komunita z Plzně. Tančíme spolu od roku 2006.</p>

@@ -1,0 +1,25 @@
+# Netlify cache headers — viz PageSpeed Insights audit "Používejte efektivní dobu
+# platnosti mezipaměti". Filename nejsou hashované (žádný build krok, viz CLAUDE.md),
+# takže délka cache je vědomý kompromis mezi rychlostí opakovaných návštěv a rizikem,
+# že prohlížeč po nasazení nové verze souboru dál servíruje starou z vlastní keše:
+#
+# - vendor/* — pinned, ručně vendorované knihovny (Bootstrap/FontAwesome/Swiper/
+#   GLightbox), mění se jen při ručním upgradu → dlouhá cache s "immutable".
+# - assets/* — fotky, video, loga, favicony; mění se občas (výměna fotky, nové logo),
+#   ale ne za provozu → střední cache (30 dní), ne "immutable".
+# - css/*, js/* — aktivně se vyvíjí prakticky každou session → krátká cache, ať se
+#   úpravy hned projeví.
+# - HTML stránky nejsou zmíněné vůbec — necháváme na Netlify výchozím chování
+#   (nezakešované/revalidované), ať navigace vždy vrátí aktuální obsah.
+
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=2592000
+
+/css/*
+  Cache-Control: public, max-age=3600
+
+/js/*
+  Cache-Control: public, max-age=3600

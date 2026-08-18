@@ -5,12 +5,41 @@
 // obrázkový hero swiper (.hero-swiper) na archivní test-hero-slider.html a text swiper
 // (.hero-text-swiper) na index.html, kde běží nad videem na pozadí (.hero-video, mimo
 // swiper), scroll-reveal animace pro [data-reveal] prvky, count-up animace čísel ve
-// stats sekci a shrink efekt navbaru při scrollu. Navigace je klasické statické menu
+// stats sekci, shrink efekt navbaru při scrollu a lazy-loading hero videí
+// ([data-lazy-video] — index.html i nabor.html). Navigace je klasické statické menu
 // (odkazy na jednotlivé stránky, aktivní stránka je označená přímo v HTML) — bez JS
 // scrollspy chování.
 
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Lazy hero video — [data-lazy-video] (.hero-video na index.html, .hero-reel__video
+  // na nabor.html). V HTML nemají autoplay/preload a jejich <source> mají src schované
+  // v data-src, takže je prohlížeč při načtení stránky vůbec nezačne stahovat (video
+  // soubory mají řádově MB a jinak by okamžitě soutěžily o šířku pásma s CSS/JS/fonty/
+  // poster obrázkem). Skutečné video se dotáhne a spustí až po window.load — tedy až
+  // po kritickém obsahu stránky — a jen když to dává smysl: ne při prefers-reduced-motion
+  // a ne na výrazně omezeném připojení (Data Saver / 2G-3G přes Network Information API,
+  // kde je podporované). Do té doby — nebo natrvalo, pokud se video nespustí — zůstává
+  // vidět jen poster (na nabor.html je to vyextrahovaný snímek z videa).
+  const lazyVideos = document.querySelectorAll('[data-lazy-video]');
+  if (lazyVideos.length) {
+    const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+    const isSlowConnection = !!(conn && (conn.saveData || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || '')));
+    const startLazyVideo = video => {
+      if (reduceMotion || isSlowConnection) return;
+      video.querySelectorAll('source[data-src]').forEach(source => {
+        source.src = source.dataset.src;
+      });
+      video.load();
+      video.play().catch(() => { });
+    };
+    if (document.readyState === 'complete') {
+      lazyVideos.forEach(startLazyVideo);
+    } else {
+      window.addEventListener('load', () => lazyVideos.forEach(startLazyVideo), { once: true });
+    }
+  }
 
   // Scroll reveal — [data-reveal] prvky (na index.html) se při vjezdu do viewportu
   // "rozsvítí" fade+translateY animací (viz CSS). One-shot: jakmile se prvek jednou

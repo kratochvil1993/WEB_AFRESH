@@ -12,13 +12,18 @@
   <link rel="shortcut icon" href="/assets/fav/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png" />
   <link rel="manifest" href="/assets/fav/site.webmanifest" />
+  <!-- Poster videa v hero sekci je LCP prvek na této stránce — preload s vysokou
+       prioritou, ať naskočí co nejdřív, zatímco samotné video se dotahuje až
+       později (viz .hero-video níž a "Lazy hero video" v js/main.js). -->
+  <link rel="preload" as="image" href="assets/photos/hero-breakdance.webp" fetchpriority="high">
   <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
@@ -26,7 +31,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid navbar-inner d-flex align-items-center justify-content-between">
       <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
-        <span class="logo-badge"><img src="assets/logo-white.png" alt="Afresh DC logo"></span>
+        <span class="logo-badge"><img src="assets/logo-white.png" alt="Afresh DC logo" width="200" height="200"></span>
         <h1 class="visually-hidden">Afresh Dance Community</h1>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
@@ -60,9 +65,14 @@
   </nav>
 
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline poster="assets/photos/hero-breakdance.webp">
-      <source src="assets/video/hero_video_4096k_noaudio.webm" type="video/webm">
-      <source src="assets/video/hero_video_4096k_noaudio.mp4" type="video/mp4">
+    <!-- Lazy hero video: bez autoplay/preload a se source přes data-src, aby prohlížeč
+         video (řádově MB) nestahoval hned při načtení stránky a nesoutěžil o šířku
+         pásma s CSS/JS/fonty. Reálně se dotáhne a spustí až po plném načtení stránky —
+         viz "Lazy hero video" v js/main.js. Do té doby je vidět jen poster výše. -->
+    <video class="hero-video" data-lazy-video muted loop playsinline preload="none"
+      poster="assets/photos/hero-breakdance.webp">
+      <source data-src="assets/video/hero_video_4096k_noaudio.webm" type="video/webm">
+      <source data-src="assets/video/hero_video_4096k_noaudio.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
@@ -176,9 +186,12 @@
         </div>
         <div class="col-lg-5 reveal-delay-1" data-reveal>
           <div class="about-visual">
-            <img class="block b1" src="assets/photos/about-lineup.webp" alt="Afresh DC na pódiu při vystoupení">
-            <img class="block b2" src="assets/photos/about-medals.webp" alt="Afresh DC s medailemi ze soutěže">
-            <img class="block b3" src="assets/photos/about-action.webp" alt="Tanečnice Afresh DC v akci na pódiu">
+            <img class="block b1" src="assets/photos/about-lineup.webp" alt="Afresh DC na pódiu při vystoupení"
+              width="900" height="600" loading="lazy" decoding="async">
+            <img class="block b2" src="assets/photos/about-medals.webp" alt="Afresh DC s medailemi ze soutěže"
+              width="900" height="600" loading="lazy" decoding="async">
+            <img class="block b3" src="assets/photos/about-action.webp" alt="Tanečnice Afresh DC v akci na pódiu"
+              width="900" height="600" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -335,7 +348,7 @@
       <div class="footer-top">
         <div class="footer-col footer-col--brand" data-reveal>
           <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
-            <span class="footer-logo"><img src="assets/logo-white.png" alt="Afresh DC logo"></span>
+            <span class="footer-logo"><img src="assets/logo-white.png" alt="Afresh DC logo" width="200" height="200"></span>
             <span class="footer-brand-name">Afresh Dance Community</span>
           </a>
           <p class="footer-tagline text-dim">Hip hopová taneční komunita z Plzně. Tančíme spolu od roku 2006.</p>
