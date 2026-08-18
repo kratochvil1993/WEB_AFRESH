@@ -267,10 +267,11 @@ body:has(.page-hero--yellow) .navbar:not(.is-scrolled){
    the vertically-centered hero) the full 100px bleed logo eats too much of the
    viewport height and — on short mobile screens — physically overlaps the hero's
    eyebrow tag, since .hero centers its content and only has ~96px of top padding
-   to clear it. Shrink the bleed here and give the hero a bit more clearance instead
-   of solving it per-page. */
+   to clear it. The lg+ bleed-below-the-bar look also just reads as the logo
+   sagging out of the header once the navbar is this narrow, so shrink the
+   badge and cancel the bleed entirely here instead of solving it per-page. */
 @media (max-width:991.98px){
-  .logo-badge{width:60px; height:60px; margin:-4px 0; transform:translateY(8px);}
+  .logo-badge{width:60px; height:60px; margin:0; transform:translateY(0);}
 }
 .navbar-nav .nav-link{
   color:var(--text); font-size:.8rem; letter-spacing:2px; text-transform:uppercase; font-weight:600;
