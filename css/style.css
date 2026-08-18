@@ -523,7 +523,7 @@ section{padding:9rem 0;}
   display:flex; align-items:center; justify-content:center;
   text-align:center;
   overflow:hidden;
-  background:url('../assets/gallery/gallery-01.webp') center 20%/cover no-repeat fixed;
+  background:url('../assets/gallery/gallery-19.webp') center 20%/cover no-repeat fixed;
 }
 .parallax-band__overlay{
   position:absolute; inset:0;
@@ -769,10 +769,10 @@ footer a:hover{color:var(--text);}
   .info-chip-row{justify-content:center;}
 }
 
-/* LEKTOŘI — profilové karty na lektori.html. Avatar je zatím placeholder
-   ikona v kruhu (žádné reálné portréty lektorů k dispozici), jakmile budou
-   fotky, stačí .lektor-avatar nahradit <img>. Stejný hover-lift + accent2
-   border jazyk jako .info-chip výše, aby to sedělo k ostatním kartám na webu. */
+/* LEKTOŘI — profilové karty na lektori.html. .lektor-avatar je kruh, buď
+   s ikonou (lektor bez fotky) nebo s <img> uvnitř (object-fit:cover ořízne
+   fotku do kruhu). Stejný hover-lift + accent2 border jazyk jako .info-chip
+   výše, aby to sedělo k ostatním kartám na webu. */
 .lektor-card{
   background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius);
   padding:2.6rem 2rem; height:100%; text-align:center;
@@ -784,7 +784,9 @@ footer a:hover{color:var(--text);}
   background:var(--bg); border:1px solid var(--line);
   display:flex; align-items:center; justify-content:center;
   font-size:2.4rem; color:var(--accent2);
+  overflow:hidden;
 }
+.lektor-avatar img{width:100%; height:100%; object-fit:cover;}
 .lektor-card h2{font-size:1.5rem; margin-bottom:.3rem;}
 .lektor-role{
   display:block; color:var(--accent2); font-size:.72rem; letter-spacing:2px;
