@@ -814,3 +814,67 @@ footer a:hover{color:var(--text);}
   .gallery-grid{columns:2; column-gap:8px;}
   .gallery-item{margin-bottom:8px;}
 }
+
+/* Cookie lišta — vanilla-cookieconsent (vendor/cookieconsent/, viz js/cookie-consent.js).
+   Knihovna se stylizuje přes vlastní CSS custom properties (--cc-*), tady je jen
+   přemapujeme na barvy webu (--accent/--accent2/--bg-alt/--line…) a zaoblíme tlačítka
+   na 999px, ať navazují na .pill-btn jazyk zbytku webu. */
+#cc-main{
+  --cc-bg: var(--bg-alt);
+  --cc-primary-color: var(--text);
+  --cc-secondary-color: var(--text-dim);
+  --cc-font-family: 'Inter', sans-serif;
+  --cc-modal-border-radius: var(--radius);
+  --cc-btn-border-radius: 999px;
+  --cc-btn-primary-bg: var(--accent);
+  --cc-btn-primary-color: #0a0a0a;
+  --cc-btn-primary-border-color: var(--accent);
+  --cc-btn-primary-hover-bg: var(--accent2);
+  --cc-btn-primary-hover-color: #0a0a0a;
+  --cc-btn-primary-hover-border-color: var(--accent2);
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: var(--text);
+  --cc-btn-secondary-border-color: var(--accent2);
+  --cc-btn-secondary-hover-bg: rgba(255,212,0,0.1);
+  --cc-btn-secondary-hover-color: var(--accent2);
+  --cc-btn-secondary-hover-border-color: var(--accent2);
+  --cc-toggle-on-bg: var(--accent);
+  --cc-toggle-off-bg: var(--line);
+  --cc-toggle-on-knob-bg: #0a0a0a;
+  --cc-toggle-off-knob-bg: var(--text);
+  --cc-toggle-readonly-bg: var(--line);
+  --cc-toggle-readonly-knob-bg: var(--text-dim);
+  --cc-link-color: var(--accent2);
+  --cc-cookie-category-block-bg: var(--bg);
+  --cc-cookie-category-block-border: 1px solid var(--line);
+  --cc-cookie-category-block-hover-bg: var(--bg);
+  --cc-cookie-category-block-hover-border: 1px solid var(--accent2);
+  --cc-cookie-category-expanded-block-bg: var(--bg);
+  --cc-cookie-category-expanded-block-hover-bg: var(--bg);
+  --cc-section-category-border: 1px solid var(--line);
+  --cc-separator-border-color: var(--line);
+  --cc-overlay-bg: rgba(10,10,10,0.7);
+  --cc-footer-bg: var(--bg-alt);
+  --cc-footer-border-color: var(--line);
+  --cc-footer-color: var(--text-dim);
+  --cc-z-index: 9999;
+}
+#cc-main .cm{border:1px solid var(--line);}
+#cc-main a{color:var(--cc-link-color);}
+
+/* Odkaz "Nastavení cookies" v patičce (viz footer-bottom) je z technických důvodů
+   <button> (naváže si ho vanilla-cookieconsent přes data-cc="show-preferencesModal"),
+   ale vizuálně má vypadat stejně jako sousední odkazy Mapa stránek / Cookies. */
+.footer-bottom button{
+  background:none; border:none; padding:0; font:inherit;
+  color:var(--text-dim); text-decoration:none; cursor:pointer;
+}
+.footer-bottom button:hover{color:var(--text);}
+
+/* Tabulka přehledu cookies na cookies.html — vlastní styl místo výchozího Bootstrap
+   .table, ať drží stejný jazyk jako zbytek webu (var(--line) okraje, žádná zebra). */
+.cookie-table{width:100%; border-collapse:collapse; font-size:.92rem;}
+.cookie-table th, .cookie-table td{padding:.85rem 1rem; border-bottom:1px solid var(--line); text-align:left; color:var(--text-dim); white-space:nowrap;}
+.cookie-table th{font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text); font-weight:700;}
+.cookie-table td code{color:var(--accent2); font-size:.85rem;}
+.cookie-table tr:last-child td{border-bottom:none;}

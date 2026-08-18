@@ -3,6 +3,26 @@
 
 <head>
   <meta charset="UTF-8">
+  <!-- Consent Mode v2 — výchozí stav "denied", dokud návštěvník cookies neodsouhlasí
+       (viz js/cookie-consent.js). Musí běžet před načtením GTM. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KNCDDDRK');</script>
+  <!-- End Google Tag Manager -->
   <title>Afresh Dance Community — Plzeň</title>
   <meta name="description"
     content="Afresh Dance Community — hip hopová taneční skupina z Plzně. Založena 2006. Hip hop, house dance, new jack swing, kurzy a vystoupení.">
@@ -18,6 +38,7 @@
   <link rel="preload" as="image" href="assets/photos/hero-breakdance.webp" fetchpriority="high">
   <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="vendor/cookieconsent/cookieconsent.min.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +48,10 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNCDDDRK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid navbar-inner d-flex align-items-center justify-content-between">
@@ -165,11 +190,10 @@
           <span class="tag d-block mb-3">Kdo jsme</span>
           <h2 class="display mb-4" style="font-size:clamp(36px,5vw,60px);"><span class="outline">Víc</span> než<br><span
               class="fill">tanec.</span></h2>
-          <p class="fs-5 text-dim">Afresh D.C. vznikla v roce <strong class="text-white">2006</strong> v Plzni z pár
-            lidí, co chtěli tančit líp než včera. Dnes patříme mezi nejsilnější taneční skupiny v kraji — s pódii po
-            celé republice.</p>
-          <p class="fs-5 text-dim">Trénujeme, tvoříme choreografie a vystupujeme napříč styly street dance kultury. Ale
-            hlavně — jsme parta, která spolu roste na pódiu i mimo něj.</p>
+          Od roku 2006 rosteme, tančíme, tvoříme a sbíráme zkušenosti na pódiích po celé republice. Dnes patříme mezi
+          výrazné taneční skupiny v Česku a pořád nás baví hledat nové cesty, styly a způsoby, jak se v tanci posouvat
+          dál.
+
           <div class="mt-4 mb-4">
             <span class="style-badge">Hip hop</span>
             <span class="style-badge">House dance</span>
@@ -329,7 +353,8 @@
         <div class="col-lg-7 text-center text-lg-start" data-reveal>
           <span class="tag d-block mb-3">Nezůstávej v publiku</span>
           <h2 class="display mb-0" style="font-size:clamp(32px,5vw,56px);">Pojď <span class="text-accent">tančit</span>
-            <span class="outline">s námi</span></h2>
+            <span class="outline">s námi</span>
+          </h2>
         </div>
         <div class="col-lg-5 text-center text-lg-end reveal-delay-1" data-reveal>
           <a href="kontakt.html" class="pill-btn">
@@ -349,7 +374,8 @@
       <div class="footer-top">
         <div class="footer-col footer-col--brand" data-reveal>
           <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
-            <span class="footer-logo"><img src="assets/logo-white.png" alt="Afresh DC logo" width="200" height="200"></span>
+            <span class="footer-logo"><img src="assets/logo-white.png" alt="Afresh DC logo" width="200"
+                height="200"></span>
             <span class="footer-brand-name">Afresh Dance Community</span>
           </a>
           <p class="footer-tagline text-dim">Hip hopová taneční komunita z Plzně. Tančíme spolu od roku 2006.</p>
@@ -395,7 +421,9 @@
         <div>© 2026 Afresh Dance Community, Plzeň</div>
         <div class="d-flex gap-4">
           <a href="mapa-stranek.html">Mapa stránek</a>
+          <a href="cookies.html">Cookies</a>
           <a href="gdpr.html">Ochrana osobních údajů</a>
+          <button type="button" data-cc="show-preferencesModal">Nastavení cookies</button>
         </div>
       </div>
     </div>
@@ -406,8 +434,10 @@
   </button>
 
   <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendor/cookieconsent/cookieconsent.min.js"></script>
   <script src="vendor/swiper/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>
