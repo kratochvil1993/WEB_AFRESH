@@ -26,6 +26,7 @@ body{
 html{scroll-behavior:smooth;}
 .display{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0;}
 .tag{color:var(--accent2); font-size:.8rem; letter-spacing:4px; text-transform:uppercase; font-weight:700;}
+.tag--big{font-size:1rem;}
 .text-accent{color:var(--accent);}
 .text-dim{color:var(--text-dim) !important;}
 /* ---------- Pill button with sliding icon ----------
@@ -239,6 +240,16 @@ html{scroll-behavior:smooth;}
    hairline above; at the top of the page it stays fully transparent. */
 .navbar.is-scrolled{
   padding:.35rem 0;
+  background:rgba(10,10,10,0.88);
+  backdrop-filter:blur(10px);
+}
+/* The nav-link palette (white / accent2 yellow / accent pink) assumes a dark
+   backdrop, which the transparent-until-scrolled navbar normally borrows
+   from the (dark) hero behind it. A `page-hero--yellow` hero breaks that
+   assumption — yellow active-link text on a yellow hero would be unreadable
+   — so on pages using it, skip the transparent phase and start the navbar
+   already in its dark "scrolled" backdrop. */
+body:has(.page-hero--yellow) .navbar:not(.is-scrolled){
   background:rgba(10,10,10,0.88);
   backdrop-filter:blur(10px);
 }
@@ -618,14 +629,13 @@ footer a:hover{color:var(--text);}
    grows — the hero's own height (that stays driven by the text block). */
 .page-hero--nabor{position:relative; overflow:visible;}
 .hero-reel{
-  position:absolute; right:clamp(4rem,11vw,10rem); bottom:-16px;
+  position:absolute; right:clamp(4rem,11vw,10rem); bottom:-40px;
   /* Width and height are set independently (not via aspect-ratio) so the
      card can run wider than the source video's 9:16 without growing taller —
      object-fit:cover on the video just crops the extra width off the sides. */
   width:clamp(220px,26vw,320px); height:clamp(266px,30.2vw,391px);
   border-radius:20px; overflow:hidden;
   transform:rotate(6deg);
-  border:2px solid rgba(255,255,255,0.12);
   box-shadow:0 24px 48px rgba(0,0,0,0.55), 0 0 44px rgba(255,45,85,0.28);
   z-index:2;
 }
@@ -656,7 +666,27 @@ footer a:hover{color:var(--text);}
     z-index:1;
   }
   .page-hero--nabor .container{position:relative; z-index:2;}
+  /* Below md this hero's own background is the dimmed full-bleed video
+     above, not the plain yellow fill — cancel the yellow variant's dark
+     text so copy stays legible against the dark video/gradient instead. */
+  .page-hero--nabor.page-hero--yellow{color:var(--text);}
+  .page-hero--nabor.page-hero--yellow p.text-dim{color:var(--text) !important;}
+  .page-hero--nabor.page-hero--yellow .outline{-webkit-text-stroke-color:var(--text);}
 }
+
+/* PAGE HERO — yellow variant: swaps the default hero's near-black background
+   for a solid yellow one, dark text for contrast. Opt-in per page (add
+   `page-hero--yellow` alongside `page-hero`) — black stays the default for
+   pages that don't use it. */
+.page-hero--yellow{
+  background:
+    radial-gradient(ellipse 55% 60% at 85% 15%, rgba(10,10,10,0.12), transparent 60%),
+    var(--accent2);
+  color:#0a0a0a;
+}
+.page-hero--yellow .tag{color:var(--accent);}
+.page-hero--yellow p.text-dim{color:#0a0a0a !important;}
+.page-hero--yellow .outline{-webkit-text-stroke-color:#0a0a0a;}
 
 .card-link{color:var(--accent); font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
 .card-link:hover{color:var(--accent2);}
