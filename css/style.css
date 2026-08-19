@@ -833,12 +833,29 @@ footer a:hover{color:var(--text);}
   background:var(--bg-alt); border-color:var(--accent); color:var(--text); box-shadow:0 0 0 3px rgba(255,45,85,0.15);
 }
 .form-control::placeholder{color:var(--text-dim);}
-.form-label{font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-dim); margin-bottom:.5rem;}
 .form-check-input{background-color:var(--bg-alt); border:1px solid var(--line);}
 .form-check-input:checked{background-color:var(--accent); border-color:var(--accent);}
 .form-check-input:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(255,45,85,0.15);}
 .form-check-label a{color:var(--text);}
 .form-check-label a:hover{color:var(--accent);}
+
+/* Floating labels (kontakt.html form): label sits inside the input like a placeholder,
+   then floats up to sit right on the input's top border once focused/filled — the
+   ::after patch punches a colored gap in the border so the border line doesn't cross
+   the label text. Requires placeholder=" " on the input/textarea (see kontakt.html) so
+   :not(:placeholder-shown) can detect "has a value". */
+.form-floating > label{color:var(--text-dim);}
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label{
+  color:var(--bg-alt);
+  opacity:1;
+  transform:scale(.85) translateY(-1.8rem) translateX(.15rem);
+}
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after{
+  background-color:var(--accent);
+}
+.form-floating > textarea.form-control{height:140px; resize:none;}
 
 @media (max-width:991px){
   .gallery-grid{columns:2;}

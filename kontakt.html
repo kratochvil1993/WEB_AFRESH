@@ -117,20 +117,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </p>
           <div class="row g-3">
             <div class="col-md-6">
-              <label class="form-label" for="jmeno">Jméno a příjmení</label>
-              <input type="text" class="form-control" id="jmeno" name="jmeno" required>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="jmeno" name="jmeno" placeholder=" " required>
+                <label for="jmeno">Jméno a příjmení</label>
+              </div>
             </div>
             <div class="col-md-6">
-              <label class="form-label" for="telefon">Telefon</label>
-              <input type="tel" class="form-control" id="telefon" name="telefon">
+              <div class="form-floating">
+                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder=" ">
+                <label for="telefon">Telefon</label>
+              </div>
             </div>
             <div class="col-12">
-              <label class="form-label" for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" name="email" required>
+              <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
+                <label for="email">E-mail</label>
+              </div>
             </div>
             <div class="col-12">
-              <label class="form-label" for="zprava">Zpráva</label>
-              <textarea class="form-control" id="zprava" name="zprava" rows="5" required></textarea>
+              <div class="form-floating">
+                <textarea class="form-control" id="zprava" name="zprava" placeholder=" " required></textarea>
+                <label for="zprava">Zpráva</label>
+              </div>
             </div>
             <div class="col-12">
               <div class="form-check">
