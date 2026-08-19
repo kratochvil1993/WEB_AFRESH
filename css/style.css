@@ -216,7 +216,7 @@ html{scroll-behavior:smooth;}
 
 /* NAVBAR */
 .navbar{
-  position:fixed; top:0; width:100%; z-index:100;
+  position:fixed; top:0; width:100%; z-index:110;
   padding:.7rem 0;
   background:transparent;
   transition:padding .3s ease, background .3s ease, backdrop-filter .3s ease;
