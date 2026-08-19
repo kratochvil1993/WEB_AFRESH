@@ -861,8 +861,63 @@ footer a:hover{color:var(--text);}
   --cc-footer-color: var(--text-dim);
   --cc-z-index: 9999;
 }
-#cc-main .cm{border:1px solid var(--line);}
+#cc-main .cm{border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 12px 40px rgba(0,0,0,.55);}
 #cc-main a{color:var(--cc-link-color);}
+
+/* Zmenšení lišty — knihovna ji ve výchozím layoutu "bar inline" natáhne přes celou
+   šířku okna (100vw); tady z ní děláme malou kartu u pravého dolního rohu s menším
+   písmem a menšími tlačítky, ať nepůsobí tak masivně. */
+#cc-main .cm--bar{
+  left:auto;
+  right:1rem;
+  width:min(380px, calc(100vw - 2rem));
+  max-width:380px;
+}
+#cc-main .cm--bar.cm--bottom{bottom:1rem;}
+
+#cc-main .cm--bar .cm__body,
+#cc-main .cm--bar .cm__links,
+#cc-main .cm--bar.cm--inline .cm__body,
+#cc-main .cm--bar.cm--inline .cm__links{
+  max-width:none;
+  width:100%;
+}
+#cc-main .cm--bar .cm__body,
+#cc-main .cm--bar.cm--inline .cm__body{
+  flex-direction:column;
+  padding:0;
+}
+
+#cc-main .cm__texts{padding:.8rem 0 0;}
+#cc-main .cm__title{font-size:.9rem; padding:0 1rem;}
+#cc-main .cm__desc{font-size:.78rem; line-height:1.45; padding:0 1rem .7rem; max-height:none;}
+
+#cc-main .cm--bar .cm__btns,
+#cc-main .cm--bar.cm--inline .cm__btns{
+  max-width:none;
+  padding:.7rem 1rem .9rem;
+  border-top:1px solid var(--cc-separator-border-color);
+}
+#cc-main .cm--bar .cm__btn{
+  min-width:0;
+  min-height:32px;
+  padding:.4em .8em;
+  font-size:.72em;
+}
+
+/* Pod 640px přebírá knihovna vlastní mobilní layout (viz cookieconsent.min.css,
+   @media max-width:640px) a všechna tlačítka staví pod sebe přes !important. My chceme
+   Přijmout vše / Odmítnout vedle sebe (jsou v první .cm__btn-group) a jen Podrobné
+   nastavení (druhá skupina) nechat samostatně na řádku pod nimi — proto stejná
+   specificita/!important, jen navíc scoped na :first-child. */
+@media screen and (max-width:640px){
+  #cc-main .cm__btn-group:first-child{
+    flex-direction:row!important;
+  }
+  #cc-main .cm__btn-group:first-child .cm__btn+.cm__btn{
+    margin:0 0 0 .375rem!important;
+  }
+}
 
 /* Odkaz "Nastavení cookies" v patičce (viz footer-bottom) je z technických důvodů
    <button> (naváže si ho vanilla-cookieconsent přes data-cc="show-preferencesModal"),

@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
           consentModal: {
             title: 'Používáme cookies',
             description:
-              'Nezbytné cookies používáme vždy, aby web správně fungoval. Jen s tvým souhlasem k nim přidáme analytické cookies (Google Analytics), díky kterým vidíme, jak web návštěvníci používají. Víc v <a href="/cookies.html">zásadách cookies</a>.',
+              'Nezbytné cookies používáme vždy. Se souhlasem přidáme analytické (Google Analytics) — víc v <a href="/cookies.html">zásadách cookies</a>.',
             acceptAllBtn: 'Přijmout vše',
             acceptNecessaryBtn: 'Odmítnout',
             showPreferencesBtn: 'Podrobné nastavení',
