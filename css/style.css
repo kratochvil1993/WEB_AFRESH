@@ -723,6 +723,9 @@ footer a:hover{color:var(--text);}
 .page-hero--yellow{
   background:
     radial-gradient(ellipse 55% 60% at 85% 15%, rgba(10,10,10,0.12), transparent 60%),
+    /* Dark fade at the bottom edge — softens the hard cut from the yellow
+       hero into the near-black section right below it. */
+    linear-gradient(180deg, transparent 55%, rgba(10,10,10,0.6) 100%),
     var(--accent2);
   color:#0a0a0a;
 }
