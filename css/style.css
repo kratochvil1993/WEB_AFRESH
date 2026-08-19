@@ -626,6 +626,10 @@ footer a:hover{color:var(--text);}
     var(--bg-alt);
 }
 .page-hero h1{font-size:clamp(42px,6vw,76px); line-height:.95;}
+/* Visual stand-in for a page's H1 when the real (SEO/a11y) h1 is
+   .visually-hidden and a differently-tagged heading (e.g. h2) needs to look
+   exactly like the hero h1 above — see nabor.html. */
+.h1-fake{font-size:clamp(42px,6vw,76px); line-height:.95;}
 @media (max-width:767.98px){
   .page-hero{padding:8rem 0 3rem;}
 }
@@ -635,6 +639,20 @@ footer a:hover{color:var(--text);}
    collage/depth effect. Absolutely positioned so it never affects — and never
    grows — the hero's own height (that stays driven by the text block). */
 .page-hero--nabor{position:relative; overflow:visible;}
+/* Kdykoli hero obsahuje boční video/foto kartu (.hero-reel), text si nechá
+   vlastní max-width, aby dlouhý claim/nadpis nikdy nezajel pod médium —
+   platí jen na šířkách lg/xl (992–1399px), kde .hero-reel sedí absolutně
+   vpravo a je textu nejblíž. Pod 992px je hero-reel full-bleed pozadí (viz
+   media query níže) a nad 1400px (xxl) už má text i bez omezení dost místa,
+   aby se vešel na jeden řádek, než začne .hero-reel. */
+@media (min-width:992px) and (max-width:1399.98px){
+  .page-hero:has(.hero-reel) .container > .tag,
+  .page-hero:has(.hero-reel) h1,
+  .page-hero:has(.hero-reel) h2,
+  .page-hero:has(.hero-reel) p{
+    max-width:620px;
+  }
+}
 .hero-reel{
   position:absolute; right:clamp(4rem,11vw,10rem); bottom:-40px;
   /* Width and height are set independently (not via aspect-ratio) so the
