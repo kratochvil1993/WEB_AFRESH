@@ -645,6 +645,10 @@ footer a:hover{color:var(--text);}
 .h1-fake{font-size:clamp(42px,6vw,76px); line-height:.95;}
 @media (max-width:767.98px){
   .page-hero{padding:8rem 0 3rem;}
+  /* Intro paragraph under the h1 (perex) is dropped on phones/sm across every
+     .page-hero header, not just the video-backed --reel variant below — on a
+     narrow viewport it just pushes the fold down without adding much. */
+  .page-hero p{display:none;}
 }
 /* First section right after a .page-hero, on every subpage — top clearance
    to match the hero's own bottom padding above. */
@@ -726,14 +730,14 @@ footer a:hover{color:var(--text);}
   .page-hero--reel.page-hero--yellow p.text-dim{color:var(--text) !important;}
   .page-hero--reel.page-hero--yellow .outline{-webkit-text-stroke-color:var(--text);}
 }
-/* On phones (and up through `sm`) the video hero shrinks further still and
-   drops its intro paragraph — with only the tag+h1 left, the hero collapses
-   to a fixed 50vh band with that remaining text vertically centered instead
-   of top-anchored by the desktop hero's padding. */
+/* On phones (and up through `sm`) the video hero shrinks further still —
+   with the intro paragraph already dropped above (all .page-hero headers)
+   and only the tag+h1 left, the hero collapses to a fixed 63vh band with
+   that remaining text vertically centered instead of top-anchored by the
+   desktop hero's padding. */
 @media (max-width:767.98px){
   .page-hero--reel{height:63vh; padding:0; display:flex; align-items:center;}
   .page-hero--reel > .container{width:100%;}
-  .page-hero--reel p{display:none;}
 }
 
 /* PAGE HERO — yellow variant: swaps the default hero's near-black background
@@ -1010,3 +1014,8 @@ footer a:hover{color:var(--text);}
 .cookie-table th{font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text); font-weight:700;}
 .cookie-table td code{color:var(--accent2); font-size:.85rem;}
 .cookie-table tr:last-child td{border-bottom:none;}
+
+/* Bootstrap .fs-5 (1.25rem) je na sm a menších rozlišeních moc velké — zmenšit. */
+@media (max-width:767.98px){
+  .fs-5{font-size:1rem!important;}
+}
