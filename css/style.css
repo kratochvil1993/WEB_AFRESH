@@ -248,6 +248,7 @@ html{scroll-behavior:smooth;}
   padding:.35rem 0;
   background:rgba(10,10,10,0.88);
   backdrop-filter:blur(10px);
+  z-index:150;
 }
 /* The nav-link palette (white / accent2 yellow / accent pink) assumes a dark
    backdrop, which the transparent-until-scrolled navbar normally borrows
@@ -679,7 +680,7 @@ footer a:hover{color:var(--text);}
   border-radius:20px; overflow:hidden;
   transform:rotate(6deg);
   box-shadow:0 24px 48px rgba(0,0,0,0.55), 0 0 44px rgba(255,45,85,0.28);
-  z-index:2;
+  z-index:108;
 }
 .hero-reel__video{display:block; width:100%; height:100%; object-fit:cover;}
 
