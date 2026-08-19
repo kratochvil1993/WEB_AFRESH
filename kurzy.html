@@ -76,11 +76,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<header class="page-hero page-hero--yellow">
+<header class="page-hero page-hero--reel page-hero--yellow">
   <div class="container">
     <span class="tag d-block mb-3">Naše nabídka</span>
     <h1 class="display">Kurzy</h1>
     <p class="text-dim fs-5 mt-3" style="max-width:560px;">Pravidelné lekce hip hopu, house dance a dalších stylů street dance pro začátečníky i pokročilé. Objev nové styly, zlepšuj svou techniku a hlavně si užij tanec naplno.</p>
+  </div>
+  <div class="hero-reel">
+    <!-- Lazy hero video, stejný vzorec jako .hero-reel__video na nabor.html
+       (viz komentář tam i "Lazy hero video" v js/main.js) — poster je
+       vyextrahovaný snímek z videa, aby na obrazovce vždy něco bylo, i než
+       se video dotáhne / pokud se nedotáhne vůbec (prefers-reduced-motion,
+       pomalé připojení). -->
+    <video class="hero-reel__video" data-lazy-video muted loop playsinline preload="none"
+      poster="assets/photos/kurzy-hero-poster.webp">
+      <source data-src="assets/video/kurzy_2048k_noaudio.webm" type="video/webm">
+      <source data-src="assets/video/kurzy_2048k_noaudio.mp4" type="video/mp4">
+    </video>
   </div>
 </header>
 

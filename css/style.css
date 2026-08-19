@@ -649,11 +649,13 @@ footer a:hover{color:var(--text);}
    to match the hero's own bottom padding above. */
 .pt-hero-gap{padding-top:4.5rem;}
 
-/* PAGE HERO — nábor: rotated "reel" video card, pinned bottom-right, spilling
+/* PAGE HERO — reel: rotated "reel" video card, pinned bottom-right, spilling
    slightly past the hero's own bottom edge into the section below for a
    collage/depth effect. Absolutely positioned so it never affects — and never
-   grows — the hero's own height (that stays driven by the text block). */
-.page-hero--nabor{position:relative; overflow:visible;}
+   grows — the hero's own height (that stays driven by the text block). Opt-in
+   per page (add `page-hero--reel` alongside `page-hero`) — used on nabor.html
+   and kurzy.html so far. */
+.page-hero--reel{position:relative; overflow:visible;}
 /* Kdykoli hero obsahuje boční video/foto kartu (.hero-reel), text si nechá
    vlastní max-width, aby dlouhý claim/nadpis nikdy nezajel pod médium —
    platí jen na šířkách lg/xl (992–1399px), kde .hero-reel sedí absolutně
@@ -689,7 +691,7 @@ footer a:hover{color:var(--text);}
    a 9:16 clip into a short wide strip would otherwise favor legs/floor over
    the dancer's upper body. */
 @media (max-width:991.98px){
-  .page-hero--nabor{overflow:hidden;}
+  .page-hero--reel{overflow:hidden;}
   .hero-reel{
     position:absolute; inset:0; right:auto; bottom:auto;
     width:100%; height:100%; margin:0;
@@ -697,7 +699,7 @@ footer a:hover{color:var(--text);}
     z-index:0;
   }
   .hero-reel__video{object-position:center 25%; filter:brightness(.5);}
-  .page-hero--nabor::after{
+  .page-hero--reel::after{
     content:'';
     position:absolute; inset:0;
     background:
@@ -705,13 +707,13 @@ footer a:hover{color:var(--text);}
       linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.55) 55%, rgba(10,10,10,0.9) 100%);
     z-index:1;
   }
-  .page-hero--nabor .container{position:relative; z-index:2;}
+  .page-hero--reel .container{position:relative; z-index:2;}
   /* Below md this hero's own background is the dimmed full-bleed video
      above, not the plain yellow fill — cancel the yellow variant's dark
      text so copy stays legible against the dark video/gradient instead. */
-  .page-hero--nabor.page-hero--yellow{color:var(--text);}
-  .page-hero--nabor.page-hero--yellow p.text-dim{color:var(--text) !important;}
-  .page-hero--nabor.page-hero--yellow .outline{-webkit-text-stroke-color:var(--text);}
+  .page-hero--reel.page-hero--yellow{color:var(--text);}
+  .page-hero--reel.page-hero--yellow p.text-dim{color:var(--text) !important;}
+  .page-hero--reel.page-hero--yellow .outline{-webkit-text-stroke-color:var(--text);}
 }
 
 /* PAGE HERO — yellow variant: swaps the default hero's near-black background
