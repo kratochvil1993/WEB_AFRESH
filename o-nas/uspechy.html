@@ -76,11 +76,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<header class="page-hero page-hero--yellow">
+<header class="page-hero page-hero--reel page-hero--yellow">
   <div class="container">
     <span class="tag d-block mb-3">Na co jsme hrdí</span>
     <h1 class="display">Úspěchy</h1>
     <p class="text-dim fs-5 mt-3" style="max-width:560px;">Od roku 2006 jsme se z party kamarádů vypracovali mezi nejkvalitnější taneční skupiny v Plzni — se svým místem i na republikové a mezinárodní scéně.</p>
+  </div>
+  <div class="hero-reel">
+    <!-- Lazy hero video, stejný vzorec jako .hero-reel__video na nabor.html/kurzy.html/vystoupeni.html
+       (viz komentář tam i "Lazy hero video" v js/main.js) — poster je
+       vyextrahovaný snímek z videa, aby na obrazovce vždy něco bylo, i než
+       se video dotáhne / pokud se nedotáhne vůbec (prefers-reduced-motion,
+       pomalé připojení). -->
+    <video class="hero-reel__video" data-lazy-video muted loop playsinline preload="none"
+      poster="../assets/photos/uspechy-hero-poster.webp">
+      <source data-src="../assets/video/uspechy_2048k_noaudio.webm" type="video/webm">
+      <source data-src="../assets/video/uspechy_2048k_noaudio.mp4" type="video/mp4">
+    </video>
   </div>
 </header>
 

@@ -6,7 +6,7 @@
 // (.hero-text-swiper) na index.html, kde běží nad videem na pozadí (.hero-video, mimo
 // swiper), scroll-reveal animace pro [data-reveal] prvky, count-up animace čísel ve
 // stats sekci, shrink efekt navbaru při scrollu a lazy-loading hero videí
-// ([data-lazy-video] — index.html, nabor.html, kurzy.html, lektori.html i vystoupeni.html). Navigace je klasické statické menu
+// ([data-lazy-video] — index.html, nabor.html, kurzy.html, lektori.html, vystoupeni.html i o-nas/uspechy.html). Navigace je klasické statické menu
 // (odkazy na jednotlivé stránky, aktivní stránka je označená přímo v HTML) — bez JS
 // scrollspy chování.
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Lazy hero video — [data-lazy-video] (.hero-video na index.html, .hero-reel__video
-  // na nabor.html, kurzy.html, lektori.html i vystoupeni.html). V HTML nemají autoplay/preload a jejich
+  // na nabor.html, kurzy.html, lektori.html, vystoupeni.html i o-nas/uspechy.html). V HTML nemají autoplay/preload a jejich
   // <source> mají src schované v data-src, takže je prohlížeč při načtení stránky vůbec nezačne stahovat
   // (video soubory mají řádově MB a jinak by okamžitě soutěžily o šířku pásma s CSS/JS/fonty/
   // poster obrázkem). Skutečné video se dotáhne a spustí až po window.load — tedy až
