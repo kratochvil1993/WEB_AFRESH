@@ -676,8 +676,14 @@ footer a:hover{color:var(--text);}
   position:absolute; right:clamp(4rem,11vw,10rem); bottom:-40px;
   /* Width and height are set independently (not via aspect-ratio) so the
      card can run wider than the source video's 9:16 without growing taller —
-     object-fit:cover on the video just crops the extra width off the sides. */
-  width:clamp(220px,26vw,320px); height:clamp(266px,30.2vw,391px);
+     object-fit:cover on the video just crops the extra width off the sides.
+     Height's max is capped at 345px (not the video's native ratio) so that on
+     wide viewports (~1300px+, where this max kicks in) the bottom-anchored
+     card stays short enough that its top edge can't reach up into the fixed
+     navbar's row — it should only ever bleed past the hero's *bottom* edge,
+     never poke up behind the header. z-index (108, below .navbar's 110/150)
+     is the belt to this suspenders in case a page's hero is unusually short. */
+  width:clamp(220px,26vw,320px); height:clamp(266px,30.2vw,345px);
   border-radius:20px; overflow:hidden;
   transform:rotate(6deg);
   box-shadow:0 24px 48px rgba(0,0,0,0.55), 0 0 44px rgba(255,45,85,0.28);
