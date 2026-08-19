@@ -655,7 +655,8 @@ footer a:hover{color:var(--text);}
    collage/depth effect. Absolutely positioned so it never affects — and never
    grows — the hero's own height (that stays driven by the text block). Opt-in
    per page (add `page-hero--reel` alongside `page-hero`) — used on nabor.html,
-   kurzy.html, lektori.html and vystoupeni.html so far. */
+   kurzy.html, lektori.html, vystoupeni.html, o-nas/uspechy.html and
+   o-nas/o-afresh.html so far. */
 .page-hero--reel{position:relative; overflow:visible;}
 /* Kdykoli hero obsahuje boční video/foto kartu (.hero-reel), text si nechá
    vlastní max-width, aby dlouhý claim/nadpis nikdy nezajel pod médium —

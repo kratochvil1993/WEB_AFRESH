@@ -86,12 +86,24 @@
     </div>
   </nav>
 
-  <header class="page-hero page-hero--yellow">
+  <header class="page-hero page-hero--reel page-hero--yellow">
     <div class="container">
       <span class="tag d-block mb-3">Kdo jsme</span>
       <h1 class="display">O afresh</h1>
       <p class="text-dim fs-5 mt-3" style="max-width:560px;">Afresh Dance Community — hip hopová taneční rodina z Plzně.
         Víc než taneční skupina — parta lidí, které spojuje tanec, hudba a chuť růst spolu.</p>
+    </div>
+    <div class="hero-reel">
+      <!-- Lazy hero video, stejný vzorec jako .hero-reel__video na nabor.html/kurzy.html/vystoupeni.html/uspechy.html
+         (viz komentář tam i "Lazy hero video" v js/main.js) — poster je
+         vyextrahovaný snímek z videa, aby na obrazovce vždy něco bylo, i než
+         se video dotáhne / pokud se nedotáhne vůbec (prefers-reduced-motion,
+         pomalé připojení). -->
+      <video class="hero-reel__video" data-lazy-video muted loop playsinline preload="none"
+        poster="../assets/photos/o-afresh-hero-poster.webp">
+        <source data-src="../assets/video/o-afresh_2048k_noaudio.webm" type="video/webm">
+        <source data-src="../assets/video/o-afresh_2048k_noaudio.mp4" type="video/mp4">
+      </video>
     </div>
   </header>
 
