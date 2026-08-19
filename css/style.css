@@ -649,6 +649,9 @@ footer a:hover{color:var(--text);}
 /* First section right after a .page-hero, on every subpage — top clearance
    to match the hero's own bottom padding above. */
 .pt-hero-gap{padding-top:4.5rem;}
+@media (max-width:767.98px){
+  .pt-hero-gap{padding-top:2.5rem;}
+}
 
 /* PAGE HERO — reel: rotated "reel" video card, pinned bottom-right, spilling
    slightly past the hero's own bottom edge into the section below for a
@@ -722,6 +725,15 @@ footer a:hover{color:var(--text);}
   .page-hero--reel.page-hero--yellow{color:var(--text);}
   .page-hero--reel.page-hero--yellow p.text-dim{color:var(--text) !important;}
   .page-hero--reel.page-hero--yellow .outline{-webkit-text-stroke-color:var(--text);}
+}
+/* On phones (and up through `sm`) the video hero shrinks further still and
+   drops its intro paragraph — with only the tag+h1 left, the hero collapses
+   to a fixed 50vh band with that remaining text vertically centered instead
+   of top-anchored by the desktop hero's padding. */
+@media (max-width:767.98px){
+  .page-hero--reel{height:63vh; padding:0; display:flex; align-items:center;}
+  .page-hero--reel > .container{width:100%;}
+  .page-hero--reel p{display:none;}
 }
 
 /* PAGE HERO — yellow variant: swaps the default hero's near-black background
