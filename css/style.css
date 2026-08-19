@@ -339,6 +339,18 @@ body:has(.page-hero--yellow) .navbar:not(.is-scrolled){
     position:static; float:none; width:100%; background:transparent; border:none;
     box-shadow:none; margin-top:.5rem !important; padding-left:1rem;
   }
+  /* Collapsed mobile menu: .nav-link is Bootstrap's block-level default here
+     (stacked column, no flex-row), so .nav-link--highlight's pill border
+     stretched edge-to-edge of the menu instead of hugging its own text —
+     shrink it back to its content width like a normal button. The stacked
+     .nav-link's own 1rem side margin (meant for desktop inter-link gaps) was
+     also doubling up with .navbar-collapse's own padding, reading as an
+     oversized inset — drop it here so items sit closer to the box edge. */
+  .navbar-collapse .nav-link{margin-left:0; margin-right:0;}
+  .navbar-nav .nav-link--highlight{
+    display:inline-block; width:auto;
+    margin-top:.2rem; margin-bottom:.5rem;
+  }
 }
 
 /* HERO */
