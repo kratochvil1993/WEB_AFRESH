@@ -643,6 +643,9 @@ footer a:hover{color:var(--text);}
 @media (max-width:767.98px){
   .page-hero{padding:8rem 0 3rem;}
 }
+/* First section right after a .page-hero, on every subpage — top clearance
+   to match the hero's own bottom padding above. */
+.pt-hero-gap{padding-top:4.5rem;}
 
 /* PAGE HERO — nábor: rotated "reel" video card, pinned bottom-right, spilling
    slightly past the hero's own bottom edge into the section below for a
