@@ -1,6 +1,9 @@
 # Zdrojové podklady od klienta (fotky apod.) - needitovat/necommitovat
 _PODKLADY/
 
+# Interní dokumenty a poznámky k projektu - necommitovat
+_docs/
+
 # OS / editor
 .DS_Store
 Thumbs.db
