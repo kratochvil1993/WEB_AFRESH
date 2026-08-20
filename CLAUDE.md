@@ -33,6 +33,15 @@ Never run `git commit` or `git push` without the user's explicit go-ahead in tha
 - The `kontakt.html` form is wired for **Netlify Forms** (`data-netlify="true"`, hidden `form-name` input, honeypot field) — it only starts working once the site is actually deployed on Netlify; no JS submit handler is needed or present.
 - `videa.html` embeds real YouTube videos via `youtube-nocookie.com/embed/<id>` iframes inside `.ratio.ratio-16x9`. The current video picks were found via web search, not confirmed against the client's own channel — verify/swap before shipping (see PROJECT.md).
 
+## SEO / structured data
+
+Every page has a JSON-LD `@graph` in `<head>` (organization/website, a page-specific type such as `WebPage`/`CollectionPage`, a `BreadcrumbList`, and on content-listing pages a matching `ItemList` — see `kurzy.html`, `o-nas/uspechy.html`, `o-nas/videa.html`), plus `<title>`, meta description, canonical link and OG tags. **This does not update itself — when editing page content, update the matching structured data in the same change**, otherwise it silently drifts out of sync (nothing breaks visually, so it's easy to forget):
+
+- Add/remove/rename a page → update its own JSON-LD block, the `BreadcrumbList`/nav links on every page linking to it, and `sitemap.xml`.
+- Add/remove gallery photos (`assets/gallery/`) → update the `image` array in `o-nas/galerie.html`'s JSON-LD.
+- Add/remove/reorder courses, achievements or videos → update the matching `ItemList` in `kurzy.html`, `o-nas/uspechy.html` or `o-nas/videa.html`.
+- Change a page's headline/description → update its `name`/`description` in JSON-LD and keep `<title>`/meta description consistent with it.
+
 ## Design system
 
 - Dark theme only for now (`--bg: #0a0a0a`). Accent colors: red/pink (`--accent: #ff2d55`) and yellow (`--accent2: #ffd400`).
