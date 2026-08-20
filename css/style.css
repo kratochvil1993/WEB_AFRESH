@@ -534,18 +534,26 @@ section{padding:9rem 0;}
   .stat-col:nth-child(2n){border-right:none;}
 }
 
-/* PARALLAX PHOTO BAND — full-bleed action shot between stats and highlights, background
-   pinned via background-attachment:fixed so the section content scrolls over it instead
-   of with it. iOS Safari silently ignores `fixed` and falls back to `scroll`, which is an
-   acceptable degrade; disabled outright below 992px (background-attachment:fixed also
-   fights with mobile browser toolbars/scroll chaining) and for prefers-reduced-motion. */
+/* PARALLAX PHOTO BAND — full-bleed action shot between stats and highlights. Real
+   <img loading="lazy"> instead of a CSS background-image (so the browser can lazy-load it
+   like any other image), positioned absolute/cover behind the overlay+text, with the drift
+   applied as a translateY driven by --parallax-offset (set from js/main.js on scroll — see
+   "Parallax band photo" there). .parallax-band__img is sized taller than its box
+   (top:-350px / height:+700px) so it can slide ±350px without ever revealing an edge — JS
+   clamps to that same buffer. prefers-reduced-motion: JS skips entirely, image just sits at
+   its default (untransformed, still correctly cropped) resting position. */
 .parallax-band{
   position:relative;
   min-height:56vh;
   display:flex; align-items:center; justify-content:center;
   text-align:center;
   overflow:hidden;
-  background:url('../assets/gallery/gallery-19.webp') center 20%/cover no-repeat fixed;
+}
+.parallax-band__img{
+  position:absolute; left:0; right:0; top:-350px; width:100%; height:calc(100% + 700px);
+  object-fit:cover; object-position:center 20%;
+  transform:translateY(var(--parallax-offset, 0px));
+  will-change:transform;
 }
 .parallax-band__overlay{
   position:absolute; inset:0;
@@ -559,10 +567,7 @@ section{padding:9rem 0;}
 .parallax-band h2 .fill{color:var(--accent);}
 .parallax-band .tag{text-shadow:0 2px 18px rgba(0,0,0,0.55);}
 @media (max-width:991px){
-  .parallax-band{background-attachment:scroll; min-height:44vh;}
-}
-@media (prefers-reduced-motion: reduce){
-  .parallax-band{background-attachment:scroll;}
+  .parallax-band{min-height:44vh;}
 }
 
 /* HIGHLIGHTS */

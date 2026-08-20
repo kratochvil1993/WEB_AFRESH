@@ -5,7 +5,8 @@
 // obrázkový hero swiper (.hero-swiper) na archivní test-hero-slider.html a text swiper
 // (.hero-text-swiper) na index.html, kde běží nad videem na pozadí (.hero-video, mimo
 // swiper), scroll-reveal animace pro [data-reveal] prvky, count-up animace čísel ve
-// stats sekci, shrink efekt navbaru při scrollu a lazy-loading hero videí
+// stats sekci, shrink efekt navbaru při scrollu, scroll-linked parallax posun fotky v
+// .parallax-band (index.html) a lazy-loading hero videí
 // ([data-lazy-video] — index.html, nabor.html, kurzy.html, lektori.html, vystoupeni.html, o-nas/uspechy.html i o-nas/o-afresh.html). Navigace je klasické statické menu
 // (odkazy na jednotlivé stránky, aktivní stránka je označená přímo v HTML) — bez JS
 // scrollspy chování.
@@ -114,6 +115,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
     applyNavScrollState();
+  }
+
+  // Parallax band fotka — obrázek je normální <img loading="lazy"> (ne CSS pozadí), posun
+  // se aplikuje jako translateY přes CSS proměnnou --parallax-offset (viz .parallax-band__img
+  // ve style.css). Offset se počítá z pozice sekce vůči viewportu (getBoundingClientRect().top),
+  // ne z absolutního window.scrollY — sekce není nahoře stránky, takže scrollY samotné by
+  // dávalo offset o tisíce pixelů dřív, než se sekce vůbec objeví. PARALLAX_BUFFER musí
+  // odpovídat top/height bufferu v CSS (.parallax-band__img), jinak by translate odkryl
+  // okraj obrázku — proto se výsledek na něj i clampuje. Přeskočí se úplně při
+  // prefers-reduced-motion — obrázek pak zůstane na klidové (netransformované) poloze z CSS.
+  const parallaxImg = document.querySelector('.parallax-band__img');
+  if (parallaxImg && !reduceMotion) {
+    const parallaxBand = parallaxImg.closest('.parallax-band');
+    const PARALLAX_SPEED = 0.5;
+    const PARALLAX_BUFFER = 350; // px — odpovídá top:-350px / height:+700px v CSS
+    const applyParallax = () => {
+      const offset = parallaxBand.getBoundingClientRect().top * PARALLAX_SPEED;
+      const clamped = Math.max(-PARALLAX_BUFFER, Math.min(PARALLAX_BUFFER, offset));
+      parallaxImg.style.setProperty('--parallax-offset', `${clamped}px`);
+    };
+    document.addEventListener('scroll', applyParallax, { passive: true });
+    applyParallax();
   }
 
   // "O nás" dropdown v navigaci — Bootstrapí dropdown JS otevírá menu jen na klik
