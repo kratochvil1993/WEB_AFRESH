@@ -627,6 +627,7 @@ footer a:hover{color:var(--text);}
 }
 .footer-bottom a{color:var(--text-dim); text-decoration:none;}
 .footer-bottom a:hover{color:var(--text);}
+.footer-bottom-links{display:flex; flex-wrap:wrap; gap:1.5rem;}
 @media (max-width:991px){
   .footer-top{grid-template-columns:1fr 1fr; row-gap:2.8rem;}
   .footer-col--brand{grid-column:1 / -1;}
@@ -634,6 +635,8 @@ footer a:hover{color:var(--text);}
 @media (max-width:575px){
   .footer-top{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column; align-items:flex-start;}
+  .footer-bottom-links{flex-direction:column; align-items:flex-start; gap:.25rem; width:100%;}
+  .footer-bottom-links a, .footer-bottom-links button{white-space:nowrap;}
 }
 
 /* PAGE HERO (subpages) */
