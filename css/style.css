@@ -427,9 +427,20 @@ body:has(.page-hero--yellow) .navbar:not(.is-scrolled){
   position:absolute; left:0; right:0; bottom:76px; z-index:2;
   display:flex; align-items:center; justify-content:center; gap:22px;
 }
-.hero-swiper-pagination{position:static !important; width:auto !important;}
+.hero-swiper-pagination{
+  position:static !important; width:auto !important;
+  --swiper-pagination-bullet-horizontal-gap:8px; /* dost, aby se sousední 24px hit-areas níž nepřekrývaly */
+}
 .hero-swiper-pagination .swiper-pagination-bullet{
   width:9px; height:9px; background:var(--text); opacity:.55;
+  position:relative; /* kotva pro ::before hit-area níž */
+}
+/* Vizuální tečka zůstává malá (design), ale klikací/dotyková plocha je neviditelně
+   zvětšená na 24×24px — min. doporučená velikost dotykového cíle (WCAG 2.5.8 /
+   Lighthouse "Touch targets"). Bez tohohle měly bullety jen 9×9px skutečné plochy. */
+.hero-swiper-pagination .swiper-pagination-bullet::before{
+  content:''; position:absolute; top:50%; left:50%;
+  width:24px; height:24px; transform:translate(-50%,-50%);
 }
 .hero-swiper-pagination .swiper-pagination-bullet-active{
   background:var(--accent2); opacity:1;

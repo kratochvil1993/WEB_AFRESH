@@ -31,9 +31,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png" />
 <link rel="manifest" href="/assets/fav/site.webmanifest" />
 <link href="../vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link href="../vendor/fontawesome/css/all.min.css" rel="stylesheet">
-<link href="../vendor/cookieconsent/cookieconsent.min.css" rel="stylesheet">
-<link href="../vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link rel="preload" href="../vendor/fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="../vendor/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+<link rel="preload" href="../vendor/cookieconsent/cookieconsent.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="../vendor/cookieconsent/cookieconsent.min.css" rel="stylesheet"></noscript>
+<link rel="preload" href="../vendor/glightbox/css/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="../vendor/glightbox/css/glightbox.min.css" rel="stylesheet"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.min.css">

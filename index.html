@@ -40,8 +40,10 @@
        později (viz .hero-video níž a "Lazy hero video" v js/main.js). -->
   <link rel="preload" as="image" href="assets/photos/hero-breakdance.webp" fetchpriority="high">
   <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
-  <link href="vendor/cookieconsent/cookieconsent.min.css" rel="stylesheet">
+  <link rel="preload" href="vendor/fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="vendor/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+  <link rel="preload" href="vendor/cookieconsent/cookieconsent.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="vendor/cookieconsent/cookieconsent.min.css" rel="stylesheet"></noscript>
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
