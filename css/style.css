@@ -488,7 +488,12 @@ section{padding:9rem 0;}
 @media (max-width:575.98px){
   section{padding:4.5rem 0;}
 }
-.section-about{background:var(--bg);}
+/* overflow:hidden navíc k body{overflow-x:hidden} — .row.g-5 uvnitř má běžný
+   Bootstrap záporný gutter margin, co sahá pár px za .container. Na body
+   samotném to sice nevytvoří skutečný scroll, ale na mobilu (hlavně iOS
+   Safari rubber-band bounce) se to umí krátce ukázat jako "natažený" okraj.
+   Stejný vzorec (sekce si overflow ustřihne sama) používá i .hero. */
+.section-about{background:var(--bg); overflow:hidden;}
 .section-about--dark{background:var(--bg);}
 
 .style-badge{
@@ -651,8 +656,12 @@ footer a:hover{color:var(--text);}
   .page-hero p{display:none;}
 }
 /* First section right after a .page-hero, on every subpage — top clearance
-   to match the hero's own bottom padding above. */
-.pt-hero-gap{padding-top:4.5rem;}
+   to match the hero's own bottom padding above. Also gets its own
+   overflow:hidden for the same reason as .section-about (see comment there):
+   the .row inside has Bootstrap's usual negative gutter margin bleeding a
+   few px past .container, which body{overflow-x:hidden} alone doesn't
+   reliably suppress on mobile (iOS Safari rubber-band bounce). */
+.pt-hero-gap{padding-top:4.5rem; overflow:hidden;}
 @media (max-width:767.98px){
   .pt-hero-gap{padding-top:2.5rem;}
 }
