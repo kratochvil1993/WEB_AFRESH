@@ -553,7 +553,7 @@ section{padding:9rem 0;}
    (top:-350px / height:+700px) so it can slide ±350px without ever revealing an edge — JS
    clamps to that same buffer. prefers-reduced-motion: JS skips entirely, image just sits at
    its default (untransformed, still correctly cropped) resting position. Since the band is
-   always 100vw wide, the <img> carries srcset (1080/1400/1600w, see assets/gallery/gallery-19*.webp,
+   always 100vw wide, the <img> carries srcset (1080/1400/1858w, see assets/gallery/gallery-01*.webp,
    re-encoded at q92 — lower quality read as visibly mushy on this photo) + sizes="100vw" so
    the browser — not us — picks the resource matching viewport × DPR. No smaller step below
    1080w: on high-DPR phones it just meant swapping one soft image for another. */
