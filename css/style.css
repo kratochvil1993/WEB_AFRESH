@@ -552,7 +552,11 @@ section{padding:9rem 0;}
    "Parallax band photo" there). .parallax-band__img is sized taller than its box
    (top:-350px / height:+700px) so it can slide ±350px without ever revealing an edge — JS
    clamps to that same buffer. prefers-reduced-motion: JS skips entirely, image just sits at
-   its default (untransformed, still correctly cropped) resting position. */
+   its default (untransformed, still correctly cropped) resting position. Since the band is
+   always 100vw wide, the <img> carries srcset (750/1080/1400/1600w, see assets/gallery/gallery-19*.webp)
+   + sizes="100vw" so the browser — not us — picks the resource matching viewport × DPR; the
+   750w floor keeps phones from getting a source that's visibly too small on high-DPR
+   screens. */
 .parallax-band{
   position:relative;
   min-height:56vh;
