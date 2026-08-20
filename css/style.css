@@ -735,6 +735,15 @@ footer a:hover{color:var(--text);}
   .page-hero--reel.page-hero--yellow{color:var(--text);}
   .page-hero--reel.page-hero--yellow p.text-dim{color:var(--text) !important;}
   .page-hero--reel.page-hero--yellow .outline{-webkit-text-stroke-color:var(--text);}
+  /* Same reasoning again for the navbar: the dark "start solid" backdrop a few
+     lines up exists only because a plain yellow hero would otherwise leave
+     white/accent2 nav-link text unreadable. Below md a --reel hero's own
+     background is the dimmed video (not yellow), so the navbar can go back to
+     being fully transparent until scrolled, same as any dark-hero page. */
+  body:has(.page-hero--reel.page-hero--yellow) .navbar:not(.is-scrolled){
+    background:transparent;
+    backdrop-filter:none;
+  }
 }
 /* On phones (and up through `sm`) the video hero shrinks further still —
    with the intro paragraph already dropped above (all .page-hero headers)
