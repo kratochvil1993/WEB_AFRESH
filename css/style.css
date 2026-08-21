@@ -213,6 +213,14 @@ html{scroll-behavior:smooth;}
 @media (prefers-reduced-motion: reduce){
   [data-reveal]{opacity:1; transform:none; transition:none;}
 }
+/* Na mobilu se fade+posun úplně vypíná — po otevření stránky se často část
+   [data-reveal] obsahu ještě nestihla "odhalit" (IntersectionObserver ji
+   zachytí, ale s viditelným zpožděním/skokem po scrollu), což na malém
+   displeji působí jako chybějící obsah. Count-up čísel (.stat-num, main.js)
+   na tomhle nezávisí a na mobilu dál běží beze změny. */
+@media (max-width:767.98px){
+  [data-reveal]{opacity:1; transform:none; transition:none;}
+}
 
 /* NAVBAR */
 .navbar{
