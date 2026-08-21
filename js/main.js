@@ -219,9 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // mimo tenhle swiper úplně), jen text nad ním (.hero-text-slide) je vlastní Swiper,
   // přepínatelný stejnými .hero-swiper-controls (šipky + tečky) jako obrázkový swiper
   // na test-hero-slider.html. autoHeight, protože oba texty mají různě dlouhý obsah.
+  // rewind (ne loop): se 2 slidy dává identické cyklení (next/prev/autoplay se stejně
+  // "přetočí" na druhý konec), ale bez DOM duplikace slidů, kterou loop vyžaduje — ta
+  // duplikace v kombinaci s autoHeight způsobovala měřitelný CLS hned po startu (Swiper
+  // spočítal výšku poprvé špatně, pak o pár desítek ms později opravil, viz Lighthouse
+  // CLS audit). Ověřeno Playwrightem, že chování (cyklení, šipky, tečky) je 1:1 stejné.
   if (typeof Swiper !== 'undefined' && document.querySelector('.hero-text-swiper')) {
     new Swiper('.hero-text-swiper', {
-      loop: true,
+      rewind: true,
       effect: 'fade',
       fadeEffect: { crossFade: true },
       speed: 700,
