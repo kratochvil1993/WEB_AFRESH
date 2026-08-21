@@ -189,6 +189,13 @@ html{scroll-behavior:smooth;}
   color:#0a0a0a;
   box-shadow:0 0 24px rgba(255,212,0,.35);
 }
+@media (min-width:576px){
+  /* Above 575px the footer's bottom row (copyright + links, incl.
+     .footer-credit) runs the full page width right where this button
+     sits at the bottom of the page — raise it clear of that row instead
+     of trying to dodge it sideways. */
+  .back-to-top{bottom:110px;}
+}
 @media (prefers-reduced-motion: reduce){
   .back-to-top{transition:opacity .2s ease, visibility .2s ease;}
 }
@@ -659,6 +666,12 @@ footer a:hover{color:var(--text);}
 .footer-bottom a{color:var(--text-dim); text-decoration:none;}
 .footer-bottom a:hover{color:var(--text);}
 .footer-bottom-links{display:flex; flex-wrap:wrap; gap:1.5rem;}
+.footer-credit{
+  display:flex; align-items:center; gap:6px;
+  font-size:.72rem; transition:color .2s ease;
+}
+.footer-credit:hover{color:var(--accent2);}
+.footer-credit img{display:block;}
 @media (max-width:991px){
   .footer-top{grid-template-columns:1fr 1fr; row-gap:2.8rem;}
   .footer-col--brand{grid-column:1 / -1;}
@@ -668,6 +681,9 @@ footer a:hover{color:var(--text);}
   .footer-bottom{flex-direction:column; align-items:flex-start;}
   .footer-bottom-links{flex-direction:column; align-items:flex-start; gap:.25rem; width:100%;}
   .footer-bottom-links a, .footer-bottom-links button{white-space:nowrap;}
+  /* Small visual gap so the JK credit reads as separate from the legal links
+     above it, instead of just another item in the same tight stack. */
+  .footer-credit{margin-top:.85rem;}
 }
 
 /* PAGE HERO (subpages) */
