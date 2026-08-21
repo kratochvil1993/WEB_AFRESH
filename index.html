@@ -65,6 +65,13 @@
   <noscript><link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet"></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Anton se v hero sekci renderuje hned nad ohybem (h2.display v .hero-text-slide)
+       a přepis z fallback fontu na Anton po async načtení CSS způsoboval layout shift
+       (viz Lighthouse CLS audit). Přímý preload souboru fontu ať se stáhne souběžně
+       s CSS a swap proběhne dřív/méně nápadně. URL je verzovaná (v27) — při update
+       Google Fonts CSS zkontrolovat, že se woff2 URL nezměnila. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2">
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
     href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap"></noscript>
@@ -309,12 +316,12 @@
               sizes="(min-width: 992px) 300px, 260px" alt="Afresh DC skupinová fotka na schodech"
               width="700" height="934" loading="lazy" decoding="async">
             <img class="block b2" src="assets/photos/about-crew-5.webp"
-              srcset="assets/photos/about-crew-5-480.webp 480w, assets/photos/about-crew-5.webp 700w"
+              srcset="assets/photos/about-crew-5-400.webp 400w, assets/photos/about-crew-5-480.webp 480w, assets/photos/about-crew-5.webp 700w"
               sizes="(min-width: 992px) 230px, 210px"
               alt="Afresh DC skupinová fotka před budovou" width="700" height="934" loading="lazy"
               decoding="async">
             <img class="block b3" src="assets/photos/about-crew-6.webp"
-              srcset="assets/photos/about-crew-6-480.webp 480w, assets/photos/about-crew-6.webp 700w"
+              srcset="assets/photos/about-crew-6-320.webp 320w, assets/photos/about-crew-6-480.webp 480w, assets/photos/about-crew-6.webp 700w"
               sizes="(min-width: 992px) 170px, 150px" alt="Afresh DC skupinová fotka v kostýmech"
               width="700" height="934" loading="lazy" decoding="async">
           </div>
