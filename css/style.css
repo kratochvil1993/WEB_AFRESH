@@ -968,6 +968,16 @@ footer a:hover{color:var(--text);}
 }
 .form-floating > textarea.form-control{height:140px; resize:none;}
 
+/* Kontaktní formulář v modalu (nabor.html CTA "Napsat nám") — bg/text barvy modalu
+   se dědí z --bs-body-bg/--bs-body-color (přepsané nahoře v :root), takže tu jen
+   doladíme okraje/radius/nadpis, aby seděly ke zbytku designu. */
+.modal{
+  --bs-modal-border-color: var(--line);
+  --bs-modal-header-border-color: var(--line);
+  --bs-modal-border-radius: var(--radius);
+}
+.modal-title{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0;}
+
 @media (max-width:991px){
   .gallery-grid{columns:2;}
 }

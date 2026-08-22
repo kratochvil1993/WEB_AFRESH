@@ -278,13 +278,13 @@
           </h2>
         </div>
         <div class="col-lg-5 text-center text-lg-end reveal-delay-1" data-reveal>
-          <a href="kontakt.html" class="pill-btn">
+          <button type="button" class="pill-btn" data-bs-toggle="modal" data-bs-target="#kontaktModal">
             <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
                 class="fa-solid fa-arrow-right"></i></span>
             <span class="pill-btn__label">Napsat nám</span>
             <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
                 class="fa-solid fa-arrow-right"></i></span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -353,6 +353,71 @@
   <button type="button" class="back-to-top" aria-label="Zpět nahoru">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
+
+  <!-- Modal s kontaktním formulářem, otevíraný z CTA "Napsat nám" výše. Formulář má
+     stejný name="kontakt" jako ten na kontakt.html, aby obě odeslání chodila do
+     jedné schránky v Netlify Forms — skryté pole "zdroj" pak v tabulce odesílání
+     rozliší, jestli zpráva přišla odsud (nábor) nebo z kontakt.html. -->
+  <div class="modal fade" id="kontaktModal" tabindex="-1" aria-labelledby="kontaktModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-3" id="kontaktModalLabel">Napiš nám</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Zavřít"></button>
+        </div>
+        <div class="modal-body">
+          <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="kontakt">
+            <input type="hidden" name="zdroj" value="nabor">
+            <p class="d-none">
+              <label>Nevyplňuj toto pole: <input name="bot-field"></label>
+            </p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="nabor-jmeno" name="jmeno" placeholder=" " required>
+                  <label for="nabor-jmeno">Jméno a příjmení</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control" id="nabor-telefon" name="telefon" placeholder=" ">
+                  <label for="nabor-telefon">Telefon</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="nabor-email" name="email" placeholder=" " required>
+                  <label for="nabor-email">E-mail</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea class="form-control" id="nabor-zprava" name="zprava" placeholder=" " required></textarea>
+                  <label for="nabor-zprava">Zpráva</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="nabor-souhlas" name="souhlas" value="ano" required>
+                  <label class="form-check-label text-dim" for="nabor-souhlas">Souhlasím se zpracováním osobních údajů dle <a href="gdpr.html">zásad ochrany osobních údajů</a>.</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="pill-btn">
+                  <span class="pill-btn__icon pill-btn__icon--left" aria-hidden="true"><i
+                      class="fa-solid fa-arrow-right"></i></span>
+                  <span class="pill-btn__label">Odeslat zprávu</span>
+                  <span class="pill-btn__icon pill-btn__icon--right" aria-hidden="true"><i
+                      class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="vendor/cookieconsent/cookieconsent.min.js"></script>
