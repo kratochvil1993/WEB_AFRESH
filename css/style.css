@@ -977,6 +977,7 @@ footer a:hover{color:var(--text);}
   --bs-modal-border-radius: var(--radius);
 }
 .modal-title{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0;}
+.modal-backdrop{--bs-backdrop-opacity: 0.85;}
 
 @media (max-width:991px){
   .gallery-grid{columns:2;}
